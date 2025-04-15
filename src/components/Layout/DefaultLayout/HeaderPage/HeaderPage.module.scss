@@ -1,0 +1,174 @@
+.header-page--root {
+    width: 100%;
+    position: sticky;
+    top: 15px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    // margin-bottom: 30px;
+}
+
+.header-wrapper {
+    width: calc(100% - 60px);
+    background-color: var(--background-base);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    border-radius: 15px;
+}
+
+.header-page--root .header--main {
+    width: calc(100% - 200px);
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin: 0 auto;
+    height: 40px;
+    background-color: var(--background-base);
+}
+
+.header-page--root .header--main .nav-list--main {
+    display: flex;
+    align-items: center;
+}
+
+.header-page--root .header--main .nav-list--main li {
+    padding: 0 15px;
+    cursor: pointer;
+}
+
+.header-page--root .nav-list--main li a {
+    font-family: var(--font-family-primary);
+    font-size: 1.8rem;
+    transition: all 0.3s;
+}
+
+.header-page--root .nav-list--main li:hover a {
+    text-shadow: 0px 3px 50px var(--spotify-primary-color), 0px -5px 50px var(--spotify-primary-color),
+        0px 5px 20px var(--spotify-primary-color), 0px 5px 20px var(--spotify-primary-color),
+        0px 5px 20px var(--spotify-primary-color);
+}
+
+.header-page--root .header--main .search-tool {
+    position: relative;
+    flex-grow: 1;
+    height: 40px;
+    background-color: var(--background-section);
+    border-radius: 999px;
+    max-width: 700px;
+    min-width: 270px;
+    margin-left: auto;
+}
+
+.header-page--root .header--main .search-tool button.btn-search-icon {
+    position: absolute;
+    right: left;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.header-page--root .header--main .search-tool button.btn-search-icon span {
+    width: 100%;
+    height: 100%;
+}
+
+.header-page--root .header--main .search-tool button.btn-search-icon span svg {
+    fill: var(--text-subdued);
+}
+
+.header-page--root .search-tool input {
+    width: 100%;
+    border-radius: 999px;
+    background-color: var(--background-section);
+    padding: 12px 56px 12px 48px;
+    color: var(--text-white);
+    border: none;
+    outline: none;
+    transition: all 0.4s;
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+.header-page--root .search-tool input:hover {
+    box-shadow: 0 0 20px 0px var(--spotify-primary-color);
+}
+
+.header-page--root .search-tool input:focus {
+    box-shadow: 0 0 20px 0px var(--spotify-primary-color);
+}
+
+.header-page--root .search-tool input::placeholder {
+    color: var(--text-subdued);
+}
+
+.header-page--root .btn-delete-value {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 24px;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-page--root .btn-delete-value span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.header-page--root .btn-delete-value span svg {
+    fill: var(--text-subdued);
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s;
+}
+
+.header-page--root .btn-delete-value:hover span svg {
+    fill: var(--text-white);
+}
+
+.search-tool-result {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background-color: var(--background-section);
+    border-radius: 8px;
+    overflow: hidden;
+    animation: showSearchHistory 0.25s linear forwards;
+}
+
+@keyframes showSearchHistory {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.header-page--root .search-tool input:focus 
+
+.search-tool-result .search-tool-result-wrapper {
+    padding: 15px 8px;
+}

@@ -1,0 +1,102 @@
+.browse--root {
+    margin-top: 75px;
+}
+
+.browse--root content {
+    padding: 0px 20px;
+}
+
+.browse--root content .browse-genres {
+    width: 100%;
+}
+
+.browse--root content .browse-genres .browse-genres-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0 30px;
+}
+
+.browse--root .browse-genres .browse-genres-wrapper .browse-genres-header h2,
+.browse--root .browse-container-header h2 {
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: var(--text-white);
+}
+
+.browse--root content .browse-genres .browse-genres-wrapper .browse-genres-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: -12px;
+}
+
+.browse--root content .browse-genres .browse-genres-wrapper .browse-genres-item {
+    padding: 12px;
+    width: 100%;
+    min-width: 300px;
+}
+
+.browse--root content .browse-genres .browse-genres-wrapper .browse-genres-item a,
+.browse--root .browse-container-item a {
+    position: relative;
+    background-color: aqua;
+    aspect-ratio: 1.7/1;
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.browse--root .browse-genres-item a span,
+.browse--root .browse-container-item a span {
+    font-size: 3.4rem;
+    color: var(--text-white);
+    font-weight: 600;
+    padding: 15px 20px 0px;
+    display: block;
+    width: fit-content;
+}
+
+.browse--root .browse-container-item a span {
+    font-size: 2rem;
+}
+
+.browse--root .browse-genres-item a .browse-genres-item-image,
+.browse--root .browse-container-item a .browse-container-item-image {
+    width: 45%;
+    position: absolute;
+    transform: rotate(25deg) translate(18%, -2%);
+    border-radius: 4px;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    bottom: 0;
+    right: 0;
+}
+
+.browse--root .browse-genres-item-image img,
+.browse--root .browse-container-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.browse--root .browse-container {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.browse--root .browse-container-wrapper {
+    padding: 0px 30px;
+}
+
+.browse--root .browse-container-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    margin-left: -12px;
+}
+
+.browse--root .browse-container-item {
+    padding: 12px;
+    width: 100%;
+}

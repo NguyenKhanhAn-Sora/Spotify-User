@@ -1,0 +1,402 @@
+.music-page--root {
+    margin-top: -30px;
+}
+
+.music-page--root content {
+    padding: unset;
+}
+
+.music-page--root content .banner--main {
+    width: 100%;
+    margin-top: -10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.music-page--root .banner--main .banner-wrapper-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-shrink: 1;
+    max-height: 420px;
+    height: 420px;
+    transition: all 1s;
+}
+
+.music-page--root .banner-wrapper-list .banner-wrapper-item {
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    flex: 0 0 100%;
+}
+
+.music-page--root .banner-padding {
+    padding: 15px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.music-page--root .card {
+    width: 200px;
+    height: auto;
+    position: absolute;
+    left: 30px;
+    bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: hidden;
+}
+
+.music-page--root .card .card-image {
+    border-radius: 5px;
+    width: 100%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+}
+
+.music-page--root .card .card-image img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.music-page--root .banner-wrapper-item .card-desc {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.music-page--root .card-desc .card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    overflow: hidden;
+}
+
+.music-page--root .card-desc .card-info span {
+    width: fit-content;
+    display: block;
+    white-space: nowrap;
+    margin-left: auto;
+}
+
+.music-page--root .card-desc .card-info .card-info-name {
+    color: var(--text-white);
+    font-size: 1.8rem;
+    font-family: var(--font-family-primary);
+    font-weight: 600;
+}
+
+.music-page--root .card-desc .card-info .card-info-artist {
+    font-size: 1.6rem;
+    color: var(--text-white);
+    font-family: var(--font-family-primary);
+}
+
+.music-page--root .card-desc .card-control {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.music-page--root .card-control button,
+.music-page--root .btn-play {
+    width: 32px;
+    height: 32px;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.btn-play {
+    padding: 4px;
+}
+
+.music-page--root .card-control button:last-child,
+.music-page--root .btn-play {
+    background-color: var(--spotify-primary-color);
+}
+
+.music-page--root .card-control button span,
+.music-page--root .btn-play span {
+    width: 100%;
+    height: 100%;
+}
+
+.music-page--root .card-control button span img {
+    width: 100%;
+}
+
+.music-page--root .btn-control-menu {
+    padding: 5px !important;
+}
+
+.music-page--root .btn-control-menu svg {
+    fill: var(--text-white);
+    transition: all 0.3s;
+}
+
+.music-page--root .btn-control-play {
+    padding: 5px !important;
+}
+
+.music-page--root .btn-control-play span svg,
+.music-page--root .btn-play span svg {
+    fill: #000;
+}
+
+.music-page--root .btn-control-follow span svg {
+    stroke: rgb(241, 158, 220);
+    stroke-width: 3px;
+}
+
+.music-page--root .btn-control-follow:hover svg path {
+    box-shadow: 0px 0px 3px #fff;
+}
+
+.music-page--root .banner-nav {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+}
+
+.music-page--root .banner-nav .btn-banner-nav {
+    width: 20px;
+    height: 20px;
+    border-radius: 999px;
+    transition: all 0.3s;
+    overflow: hidden;
+    padding: 5px;
+}
+
+.music-page--root .banner-nav .btn-banner-nav span {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: var(--text-subdued);
+    border-radius: 999px;
+}
+
+.music-page--root .banner-nav .btn-banner-nav.active span {
+    background-color: var(--text-white);
+}
+
+.music-page--root .banner-nav .btn-banner-nav:hover span {
+    background-color: var(--text-white);
+}
+
+.music-page--root content .home-section-wrapper {
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    margin-top: 40px;
+    padding: 0 30px;
+    margin-right: -10px;
+}
+
+.music-page--root .home-section-wrapper .home-section-item {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow: hidden;
+}
+
+.music-page--root .home-section-item .section-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.music-page--root .section-item-header .section-item-title {
+    font-size: 2.4rem;
+    font-family: var(--font-family-primary);
+    color: var(--text-white);
+    font-weight: 600;
+}
+
+.music-page--root .section-item-header button {
+    padding: 5px;
+}
+
+.music-page--root .section-item-header button span {
+    font-size: 1.6rem;
+    color: var(--text-white);
+    font-family: var(--font-family-primary);
+    transition: all 0.3s;
+}
+
+.music-page--root .section-item-header button:hover span {
+    text-shadow: 2px 2px 20px var(--spotify-primary-color), -2px -2px 20px var(--spotify-primary-color);
+}
+
+.music-page--root .home-section-list-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+
+.music-page--root .home-section-list-wrapper::before {
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 200px;
+    height: 100%;
+    content: '';
+    display: block;
+    background: linear-gradient(to right, rgba(31, 31, 31, 0.6), transparent);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.music-page--root .home-section-list-wrapper::after {
+    right: 0;
+    top: 0;
+    position: absolute;
+    width: 200px;
+    height: 100%;
+    content: '';
+    display: block;
+    background: linear-gradient(to left, rgba(31, 31, 31, 0.6), transparent);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.music-page--root .home-section-list-wrapper > button {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    background-color: var(--background-section);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 3;
+    transition: all 0.2s;
+}
+
+.music-page--root .home-section-list-wrapper > button:hover {
+    background-color: #2a2a2a;
+}
+
+.music-page--root .home-section-list-wrapper > button:hover svg {
+    fill: var(--text-white);
+}
+
+.music-page--root .home-section-list-wrapper > button:first-child {
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.music-page--root .home-section-list-wrapper > button:last-child {
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.music-page--root .home-section-list-wrapper > button span {
+    width: 16px;
+    height: 16px;
+}
+
+.music-page--root .home-section-list-wrapper > button span svg {
+    fill: var(--text-subdued);
+    width: 100%;
+    height: 100%;
+    transition: all 0.2s;
+}
+
+.music-page--root .home-section-item .section-item-list {
+    display: flex;
+    align-items: center;
+    position: relative;
+    /* transform: translateX(-200px); */
+    width: 100%;
+}
+
+.music-page--root .section-item-list .section-item-list--item {
+    flex: 0 0 20%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative;
+}
+
+.music-page--root .section-item-list .section-item-list--item:hover {
+    background-color: var(--background-section);
+}
+
+.music-page--root .section-item-list .section-item-list--item:hover .btn-play {
+    visibility: visible;
+    opacity: 1;
+    top: 55%;
+}
+
+.music-page--root .section-item-list--item .item-wrapper-image {
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+}
+
+.music-page--root .section-item-list--item .item-wrapper-image img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.music-page--root .section-item-list--item .item-wrapper-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.music-page--root .item-wrapper-info .item-wrapper-name {
+    color: var(--text-white);
+    font-family: var(--font-family-primary);
+    font-size: 1.6rem;
+}
+
+.music-page--root .item-wrapper-info .item-wrapper-artist {
+    color: var(--text-subdued);
+    font-family: var(--font-family-primary);
+    font-size: 1.4rem;
+}
+
+.music-page--root .section-item-list--item .btn-play {
+    position: absolute;
+    z-index: 4;
+    right: 20px;
+    padding: 6px;
+    background-color: var(--spotify-primary-color);
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
+    width: 35px;
+    height: 35px;
+    top: 60%;
+    z-index: 5;
+    visibility: none;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.music-page--root .section-item-list--item .btn-play:hover {
+    background-color: var(--color-spotify-primary);
+}
+
+.music-page--root .section-item-list--item .btn-play svg {
+    fill: #000;
+}

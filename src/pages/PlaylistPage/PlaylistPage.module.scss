@@ -1,0 +1,713 @@
+.playlist-page--root content {
+    padding: unset;
+}
+
+.playlist-page--root button:hover {
+    transform: scale(1.1);
+}
+
+.playlist-page--root button {
+    transition: all 0.3s;
+}
+
+.playlist-page--root .musicpage--root {
+    height: 100vh;
+}
+
+.playlist-page--root .musicpage-container {
+    padding-bottom: 32px;
+}
+
+.playlist-page--root .musicpage-wrapper {
+    width: 100%;
+}
+
+.playlist-page--root .musicpage-container {
+    width: 100%;
+    height: 200vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-bottom: 32px;
+}
+
+.playlist-page--root .musicpage-header {
+    width: 100%;
+    max-height: 426px;
+    min-height: 186px;
+    position: relative;
+    border-radius: 8px;
+}
+
+.playlist-page--root .header--background-color {
+    position: absolute;
+    background-color: rgb(176, 40, 40);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.playlist-page--root .header--background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(transparent 0, rgba(0, 0, 0, 0.5) 100%);
+    z-index: 2;
+}
+
+.playlist-page--root .header--content {
+    padding: 90px 30px 20px;
+    width: 100%;
+    height: 100%;
+    max-width: 1955px;
+    display: flex;
+    z-index: 3;
+    position: relative;
+    border-radius: 8px;
+}
+
+.playlist-page--root .playlist-image-wrapper {
+    border-radius: 4px;
+    overflow: hidden;
+    align-self: flex-end;
+    margin-right: clamp(16px, 16px + (100cqw - 600px)/424 * 8, 24px);
+    height: clamp(128px, (var(--main-view-grid-width) - 600px) / 424 * 100, 232px);
+    width: clamp(128px, (var(--main-view-grid-width) - 600px) / 424 * 100, 232px);
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.playlist-page--root .playlist-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.playlist-page--root .playlist-image img {
+    box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+}
+
+.playlist-page--root .playlist-info {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.playlist-page--root .playlist-title {
+    font-size: 1.4rem;
+    font-family: var(--font-family-primary);
+    color: var(--text-white);
+}
+
+.playlist-page--root .playlist-name {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-word;
+    overflow: hidden;
+    width: 100%;
+}
+
+.playlist-page--root .playlist-name h1 {
+    font-size: 5.6rem;
+    font-weight: 800;
+    color: var(--text-white);
+    font-family: var(--font-family-primary);
+    text-wrap-style: balance;
+    line-height: 1.4;
+}
+
+.playlist-page--root .playlist-desc {
+    font-size: 1.4rem;
+    font-family: var(--font-family-primary);
+    color: var(--text-subdued);
+    /* line-height: 1.2; */
+}
+
+.playlist-page--root .playlist-analysis {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 8px;
+}
+
+.playlist-page--root .playlist-logo-spotify {
+    display: flex;
+    align-items: center;
+}
+
+.playlist-page--root .playlist-logo-spotify-image img {
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.playlist-page--root .playlist-logo-spotify-image img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.playlist-page--root .playlist-logo-spotify span {
+    font-size: 1.4rem;
+    font-family: var(--font-family-primary);
+    color: var(--text-white);
+    font-weight: 600;
+}
+
+.playlist-page--root .playlist-analysis-dot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-subdued);
+    font-size: 1.4rem;
+}
+
+.playlist-page--root .playlist-analysis-detail {
+    display: flex;
+    align-items: center;
+    color: var(--text-subdued);
+}
+
+.playlist-page--root .playlist-analysis-detail span {
+    color: var(--text-subdued);
+    font-size: 1.4rem;
+    font-family: var(--font-family-primary);
+}
+
+.playlist-page--root .musicpage-content {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.playlist-page--root .content--background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 232px;
+    z-index: 1;
+    background-color: rgb(176, 40, 40);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6) 0, var(--background-base) 100%);
+}
+
+.playlist-page--root .musicpage-content--control {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+.playlist-page--root .musicpage-content--control-wrapper {
+    padding: 24px;
+    height: auto;
+    width: 100%;
+}
+
+.playlist-page--root .control--wrapper {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+}
+
+.playlist-page--root .control--wrapper > button {
+    margin-right: clamp(16px, 16px + (100cqw - 600px) / 424 * 8, 24px);
+}
+
+.playlist-page--root .control--wrapper button span {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.playlist-page--root .btn-add-music:hover span svg,
+.btn-more-option:hover span svg,
+.filter-wrapper > button:hover svg {
+    fill: var(--text-white);
+    transform: scale(1.1);
+}
+
+.playlist-page--root .btn-play-music {
+    width: 56px;
+    height: 56px;
+    border-radius: 999px;
+    background-color: var(--spotify-primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.playlist-page--root .btn-play-music:hover {
+    background-color: var(--spotify-primary-color-hover);
+    transform: scale(1.05);
+}
+
+.playlist-page--root .btn-play-music span svg {
+    width: 24px;
+    height: 24px;
+    fill: #000;
+}
+
+.playlist-page--root .btn-follow-music,
+.playlist-page--root .btn-add-music,
+.playlist-page--root .btn-more-option {
+    width: 40px;
+    height: 40px;
+}
+
+.playlist-page--root .btn-follow-music span svg {
+    width: 100%;
+    height: 100%;
+    stroke: var(--text-subdued);
+    stroke-width: 2px;
+    fill: transparent;
+}
+
+.playlist-page--root .btn-follow-music:hover span svg {
+    transform: scale(1.1);
+    fill: transparent !important;
+    stroke: var(--text-white);
+}
+
+.playlist-page--root .btn-add-music svg,
+.btn-more-option svg {
+    fill: var(--text-subdued);
+    width: 100%;
+    height: 100%;
+}
+
+.playlist-page--root .filter-wrapper {
+    display: flex;
+    flex: 1;
+    position: relative;
+    justify-content: flex-end;
+}
+
+.playlist-page--root .filter-wrapper .filter-list {
+    position: absolute;
+    top: 150%;
+    right: 0;
+    width: 160px;
+    height: 135px;
+    background-color: var(--background-popover);
+    z-index: 9999;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.playlist-page--root .filter-wrapper .filter-list .filter-list-wrapper {
+    padding: 4px;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 16px 24px rgba(0, 0, 0, 0.3), 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.playlist-page--root .filter-list-header span {
+    font-size: 1.1rem;
+    font-family: var(--font-family-primary);
+    color: var(--text-subdued);
+    font-weight: 700;
+}
+
+.playlist-page--root .filter-list-wrapper button span {
+    font-family: var(--font-family-primary);
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--text-white);
+}
+
+.playlist-page--root .filter-list-wrapper > button {
+    width: 100%;
+}
+
+.playlist-page--root .filter-list-wrapper > button:hover {
+    transform: unset;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.playlist-page--root .filter-list-wrapper button svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--text-white);
+}
+
+.playlist-page--root .filter-list-wrapper button.active svg {
+    fill: var(--spotify-primary-color);
+}
+
+.playlist-page--root .filter-list-wrapper button svg:last-child {
+    fill: var(--spotify-primary-color);
+}
+
+.playlist-page--root .filter-list-wrapper button.active span {
+    color: var(--spotify-primary-color);
+}
+
+.playlist-page--root .filter-list-wrapper > div,
+.playlist-page--root .filter-list-wrapper > button {
+    padding: 12px 8px 12px 12px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: unset;
+}
+
+.playlist-page--root .filter-wrapper > button span {
+    color: var(--text-subdued);
+    font-size: 1.4rem;
+    font-family: var(--font-family-primary);
+}
+
+.playlist-page--root .filter-wrapper > button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0 8px;
+    width: fit-content;
+    height: auto;
+}
+
+.playlist-page--root .btn-list-music {
+    width: 16px !important;
+    height: 16px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.playlist-page--root .btn-list-music svg {
+    fill: var(--text-subdued);
+    width: 100%;
+    height: 100%;
+}
+
+.playlist-page--root .playlist-list {
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 1;
+}
+
+.playlist-page--root .playlist-list-wrapper {
+    padding: 0 16px;
+    width: 100%;
+}
+
+.playlist-page--root .playlist-list-content {
+    border-radius: 4px;
+    border: 1px solid transparent;
+    outline: none;
+}
+
+.playlist-page--root .playlist-list-header {
+    padding: 0 16px;
+    position: sticky;
+    top: 64px;
+    background-color: transparent;
+    height: 36px;
+    z-index: 3;
+    margin-bottom: 8px;
+    box-sizing: content-box;
+}
+
+.playlist-page--root .playlist-list-header--wrapper {
+    padding: 0 16px;
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
+    height: 100%;
+    display: grid;
+    grid-gap: 16px;
+}
+
+.playlist-page--root .playlist-list-header--wrapper.list {
+    grid-template-columns: var(--grid-template-columns-none-date-add);
+}
+
+.playlist-page--root .playlist-list-header--wrapper.compact {
+    grid-template-columns: var(--grid-template-columns-full);
+}
+
+.playlist-page--root .playlist-list-header--wrapper > div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.playlist-page--root .playlist-list-header--wrapper > div div {
+    color: var(--text-subdued);
+    font-size: 1.4rem;
+    font-family: var(--font-family-primary);
+}
+
+.playlist-page--root .index div {
+    font-size: 1.6rem !important;
+}
+
+.playlist-page--root .duration {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end !important;
+}
+
+.playlist-page--root .duration div {
+    width: 60px;
+    height: 16px;
+}
+
+.playlist-page--root .duration div svg {
+    fill: var(--text-subdued);
+    width: 16px;
+    height: 16px;
+}
+
+.playlist-page--root .playlist-list-table {
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 3;
+}
+
+.playlist-page--root .playlist-item--wrapper {
+    width: 100%;
+    border-radius: 8px;
+    height: 56px;
+    background: transparent;
+    padding: 0 16px;
+}
+
+.playlist-page--root .playlist-item:hover {
+    background-color: hsla(0, 0%, 100%, 0.1);
+}
+
+.playlist-page--root .playlist-item {
+    display: grid;
+    padding: 0 16px;
+    grid-gap: 16px;
+    width: 100%;
+    height: 100%;
+}
+
+.playlist-page--root .playlist-list-table.list .playlist-item {
+    grid-template-columns: var(--grid-template-columns-none-date-add);
+}
+
+.playlist-page--root .playlist-list-table.compact .playlist-item {
+    grid-template-columns: var(--grid-template-columns-full);
+}
+
+.playlist-page--root .playlist-item > div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+.playlist-page--root .item-index {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+}
+
+.playlist-page--root .item-index-show {
+}
+
+.playlist-page--root .item-index-show > span:last-child {
+    display: none;
+}
+
+.playlist-page--root .item-index-show span {
+    color: var(--text-subdued);
+    font-family: var(--font-family-primary);
+    font-size: 1.6rem;
+}
+
+.playlist-page--root .playlist-item:hover .item-index-show {
+    display: none;
+}
+
+.playlist-page--root .playlist-item:hover .item-index-hover {
+    display: block;
+}
+
+.playlist-page--root .playlist-item:hover .item-artist,
+.playlist-item:hover .item-album span,
+.playlist-item:hover .item-date-add span {
+    color: var(--text-white);
+}
+
+.playlist-page--root .item-index-hover {
+    display: none;
+    width: 16px;
+    height: 16px;
+}
+
+.playlist-page--root .item-index-hover .btn-pause {
+    display: none;
+}
+
+.playlist-page--root .item-index-hover button {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    padding: unset;
+}
+
+.playlist-page--root .item-index-hover button span {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.playlist-page--root .item-index-hover button span svg {
+    fill: var(--text-white);
+    width: 100%;
+    height: 24px;
+}
+
+.playlist-page--root .item-info-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.playlist-page--root .item-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.playlist-page--root .item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.playlist-page--root .item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.playlist-page--root .item-title {
+    font-family: var(--font-family-primary);
+    font-size: 1.6rem;
+    /* font-weight: 600; */
+    color: var(--text-white);
+}
+
+.playlist-page--root .item-title,
+.playlist-page--root .item-artist,
+.playlist-page--root .item-album span {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: unset;
+}
+
+.playlist-page--root .item-artist {
+    font-size: 1.4rem;
+    color: var(--text-subdued);
+    font-family: var(--font-family-primary);
+}
+
+.playlist-page--root .item-album span,
+.playlist-page--root .item-date-add span {
+    font-family: var(--font-family-primary);
+    font-size: 1.4rem;
+    color: var(--text-subdued);
+}
+
+.playlist-page--root .item-duration {
+    justify-content: flex-end !important;
+}
+
+.playlist-page--root .item-duration-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.playlist-page--root .item-duration button {
+    width: 44px;
+    height: 44px;
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+}
+
+.playlist-page--root .item-duration button span {
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.playlist-page--root .playlist-item:hover .item-duration button span {
+    display: flex;
+}
+
+.playlist-page--root .item-duration .btn-add-music {
+    margin-right: 12px;
+}
+
+.playlist-page--root .item-duration .music-time {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 5ch;
+    margin-right: 12px;
+}
+
+.playlist-page--root .item-duration .music-time span {
+    color: var(--text-subdued);
+    font-size: 1.4rem;
+    font-family: var(--font-family-primary);
+}
+
+div.item-artist span {
+    color: var(--text-subdued);
+    font-size: 1.4rem;
+    font-family: var(--font-family-primary);
+}
+
+// ------------------- Responsive ------------------- //
+
+@media (max-width: 1400px) {
+    .playlist-page--root .playlist-name h1 {
+        font-size: 4.2rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .playlist-page--root .playlist-name h1 {
+        font-size: 3.4rem;
+    }
+}

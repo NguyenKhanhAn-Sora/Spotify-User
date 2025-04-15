@@ -1,0 +1,697 @@
+.main--signup .root-main {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background-base);
+}
+
+.main--signup .root-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main--signup .content {
+    width: 388px;
+    max-width: 388px;
+    height: auto;
+    padding: 0 32px;
+    background-color: transparent;
+}
+
+.main--signup .register-form {
+    width: 100%;
+}
+
+.main--signup .step-1,
+.main--signup .step-2,
+.main--signup .step-3,
+.main--signup .last-step {
+    display: none;
+}
+
+.main--signup .step-1.show,
+.main--signup .step-2.show,
+.main--signup .step-3.show,
+.main--signup .last-step.show {
+    display: flex;
+    flex-direction: column;
+}
+
+.main--signup .logo_spotify {
+    display: flex;
+    justify-content: center;
+    padding: 32px 0 24px;
+}
+
+.main--signup .register-form .step-1 h1 {
+    margin-bottom: 32px;
+    font-size: 4.8rem;
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.main--signup .logo_spotify a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.main--signup .logo_spotify a svg {
+    fill: white;
+    stroke: transparent;
+}
+
+.main--signup .login-list button {
+    width: 325px;
+    height: 50px;
+    border-radius: 999px;
+    border: 1px solid var(--border-button);
+    cursor: pointer;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+    padding: 0 35px;
+    font-family: var(--font-family-primary);
+}
+
+.main--signup .google-login span:first-child,
+.main--signup .facebook-login span:first-child {
+    width: 24px;
+    height: 24px;
+}
+
+.main--signup .login-list button span:first-child svg {
+    width: 100%;
+    height: 100%;
+}
+
+.main--signup .login-list button span:last-child {
+    color: #fff;
+    font-weight: 600;
+    flex-grow: 1;
+}
+
+.main--signup .login-list .facebook-login span:first-child {
+    width: 30px;
+    height: 30px;
+    transform: translateX(-2px);
+}
+
+.main--signup .login-list button:hover {
+    border: 1px solid #fff;
+}
+
+.main--signup .login-list button img {
+    width: 24px;
+    height: 24px;
+}
+
+.main--signup .line {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(124, 124, 124, 0.3);
+    margin: 40px 0;
+}
+
+/* ----------------- Form Login ------------ */
+
+.main--signup .register-form {
+    width: 100%;
+    padding-bottom: 32px;
+}
+
+.main--signup .register-form label {
+    font-size: 1.4rem;
+    font-family: var(--font-family-primary);
+    margin-bottom: 8px;
+    color: #fff;
+    font-weight: 600;
+    display: block;
+}
+
+.main--signup .register-form input {
+    width: 100%;
+    height: var(--button-height);
+    padding: 12px 48px 12px 12px;
+    color: #fff;
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-primary);
+    background-color: transparent;
+    border-radius: 3px;
+    transition: all 0.3s;
+    outline: none;
+    border: 1px solid var(--border-button);
+}
+
+// .register-form .step-1 .username-gr.not-error input,
+.main--signup // .register-form .password-gr.not-error input {
+//     border: 1px solid var(--border-button);
+// }
+
+.main--signup .register-form .step-1 .username-gr.not-error input:hover,
+.main--signup .register-form .password-gr.not-error input:hover {
+    box-shadow: 0 0 0 1px #fff;
+}
+
+.main--signup .register-form .step-1 .username-gr.not-error input:focus,
+.main--signup .register-form .password-gr.not-error input:focus {
+    box-shadow: 0 0 0 3px #fff;
+}
+
+.main--signup .register-form .username-gr.error input,
+.main--signup .register-form .password-gr.error input {
+    border-color: var(--error-color-deep);
+    border-width: 1px;
+}
+
+.main--signup .register-form::placeholder {
+    color: var(--border-button);
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-primary);
+}
+
+.main--signup .email-error {
+    display: none;
+    gap: 4px;
+    margin-top: 5px;
+}
+
+.main--signup .email-error.active {
+    display: flex;
+}
+
+.main--signup .email-error span:first-child {
+    width: 16px;
+    height: 20px;
+}
+
+.main--signup .email-error svg {
+    fill: var(--error-color);
+    color: var(--error-color);
+    width: 100%;
+    height: 100%;
+}
+
+.main--signup .email-error span {
+    color: var(--error-color);
+    font-size: 1.4rem;
+    font-family: var(--font-family-primary);
+}
+
+.main--signup .register-form button.next-step {
+    width: var(--button-width);
+    height: var(--button-height);
+    background-color: rgb(30, 215, 96);
+    border: none;
+    outline: none;
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-primary);
+    color: #000;
+    border-radius: var(--button-radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 8px;
+}
+
+.main--signup .register-form button.next-step:hover {
+    transform: scale(1.03);
+    background-color: #3be477;
+}
+
+.main--signup .step-1 > a {
+    margin-top: 8px;
+    font-weight: 400;
+    color: var(--color-spotify-primary);
+    font-size: 1.4rem;
+    text-decoration: underline;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.main--signup .or {
+    width: 100%;
+    height: 2px;
+    background-color: var(--border-button);
+    margin: 40px 0px;
+    position: relative;
+}
+
+.main--signup .or::after {
+    width: 40px;
+    height: 40px;
+    content: 'or';
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 999;
+    background-color: var(--background-base);
+    color: #fff;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.main--signup .already-account {
+    text-align: center;
+    color: var(--border-button);
+    font-size: 1.8rem;
+    /* font-weight: 600; */
+}
+
+.main--signup .already-account a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* ------------------------ Input Password----------------- */
+
+.main--signup .input-password {
+    position: relative;
+}
+
+.main--signup button.btn-show-password {
+    position: absolute;
+    margin-top: 16px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-primary);
+    color: #fff;
+    font-weight: 600;
+    width: 24px;
+    height: 24px;
+    transition: all 0.2s;
+    right: 12px;
+    top: -2px;
+    padding: 0;
+}
+
+.main--signup button.btn-show-password svg path {
+    transition: all 0.2s;
+}
+
+.main--signup button.btn-show-password svg path {
+    fill: rgb(179, 179, 179);
+}
+
+.main--signup button.btn-show-password:hover svg path {
+    fill: #fff;
+}
+
+.main--signup button.btn-show-password:hover {
+    transform: scale(1.1);
+}
+
+.main--signup .btn-show-password.show path {
+    d: path(
+        'M 6.703 7.382 A 6.073 6.073 0 0 0 6.113 10 c 0 3.292 2.614 6 5.887 6 c 3.273 0 5.886 -2.708 5.886 -6 c 0 -0.936 -0.211 -1.825 -0.589 -2.618 c 0.573 0.341 1.115 0.744 1.634 1.204 c 0.674 0.596 1.77 1.793 2.683 3.414 c -0.913 1.62 -2.01 2.818 -2.683 3.414 C 17.037 17.093 14.833 18 12 18 s -5.037 -0.907 -6.931 -2.586 c -0.674 -0.596 -1.77 -1.793 -2.683 -3.414 c 0.913 -1.62 2.01 -2.818 2.683 -3.414 c 0.519 -0.46 1.061 -0.863 1.634 -1.204 Z M 12 4 C 8.671 4 5.996 5.091 3.742 7.089 c -0.896 0.794 -2.3 2.353 -3.381 4.453 L 0.125 12 l 0.236 0.458 c 1.082 2.1 2.485 3.659 3.381 4.453 C 5.996 18.908 8.672 20 12 20 c 3.329 0 6.004 -1.091 8.258 -3.089 c 0.896 -0.794 2.3 -2.353 3.38 -4.453 l 0.237 -0.458 l -0.236 -0.458 c -1.082 -2.1 -2.485 -3.659 -3.381 -4.453 C 18.004 5.09 15.328 4 12 4 Z m 0 2 c 2.125 0 3.886 1.77 3.886 4 S 14.125 14 12 14 s -3.886 -1.77 -3.886 -4 S 9.875 6 12 6 Z'
+    );
+}
+
+/* ---------------------- Step 2 ------------------ */
+.main--signup .step-2 {
+    width: 100%;
+    height: auto;
+}
+
+.main--signup .step-header {
+    width: 436px;
+    height: 82px;
+    margin-bottom: 30px;
+    display: none;
+}
+
+.main--signup .step-header.show {
+    display: block;
+}
+
+.main--signup .step-process-wrapper {
+    width: 100%;
+    height: 2px;
+    background-color: var(--border-button);
+    position: relative;
+}
+
+.main--signup .step-process {
+    position: absolute;
+    height: 100%;
+    background-color: var(--color-spotify-primary);
+    left: 0;
+    top: 0;
+    z-index: 2;
+    width: 0%;
+    transition: all 0.3s;
+}
+
+.main--signup .step-process.process-step-0 {
+    width: 0%;
+}
+
+.main--signup .step-process.process-step-1 {
+    width: 33.33%;
+}
+
+.main--signup .step-process.process-step-2 {
+    width: 66.66%;
+}
+
+.main--signup .step-process.process-step-3 {
+    width: 100%;
+}
+
+.main--signup .step-info {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+.main--signup .step-info button {
+    width: 56px;
+    height: 100%;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main--signup .step-info button svg {
+    fill: var(--text-subdued);
+    transition: all 0.3s;
+}
+
+.main--signup .step-info button:hover svg {
+    fill: #fff;
+}
+
+.main--signup .step-info .step-info-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px 0px;
+}
+
+.main--signup .step-info-wrapper .step-count {
+    font-size: 1.8rem;
+    font-family: var(--font-family-primary);
+    color: var(--text-subdued);
+}
+
+.main--signup .step-info-wrapper .step-title {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.6rem;
+}
+
+.main--signup .step-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.main--signup .password-condition {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 390px;
+}
+
+.main--signup .password-condition p {
+    color: var(--text-white);
+    font-weight: var(--font-weight-primary);
+    font-size: 1.4rem;
+}
+
+.main--signup .condition-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.main--signup .condition-item {
+    display: flex;
+    align-items: center;
+}
+
+.main--signup .condition-item span:last-child {
+    margin-left: 8px;
+    color: var(--text-white);
+    font-size: 1.4rem;
+}
+
+.main--signup .condition-list .condition-item span:first-child {
+    width: 12px;
+    height: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-2px);
+}
+
+.main--signup .condition-item.active span svg {
+    fill: #3be477;
+    color: #3be477;
+}
+
+.main--signup .step-3 {
+}
+
+.main--signup .step-3 p {
+    color: var(--text-subdued);
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+}
+
+.main--signup .step-3 label {
+    margin: 0;
+}
+
+.main--signup .step-3 .date-of-birth p a {
+    color: var(--text-subdued);
+    font-size: 1.4rem;
+    text-decoration: underline;
+}
+
+.main--signup .input-dob {
+    display: flex;
+    gap: 8px;
+}
+
+.main--signup .input-dob input {
+    padding: 12px;
+}
+
+.main--signup .input-dob .select-month {
+    flex-grow: 1;
+    height: 50px;
+    position: relative;
+}
+
+.main--signup .input-dob select {
+    appearance: none;
+    color: var(--text-white);
+    width: 100%;
+    height: 100%;
+    /* font-weight: 600; */
+    padding: 12px 40px 12px 12px;
+    border: 1px solid var(--border-button);
+    background-color: transparent;
+    border-radius: 3px;
+    font-size: 1.6rem;
+    font-family: var(--font-family-primary);
+}
+
+.main--signup .input-dob select option {
+    background-color: var(--background-base);
+}
+
+.main--signup .select-month span {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 15px;
+}
+
+.main--signup .select-month span svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--border-button);
+}
+
+.main--signup .input-dob input:first-child {
+    width: 60px;
+}
+
+.main--signup .input-dob input:last-child {
+    width: 90px;
+}
+
+.main--signup .input-dob input::placeholder {
+    color: var(--text-subdued);
+}
+
+.main--signup .gender .gender-option {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.main--signup .gender .gender-option label {
+    display: flex;
+    padding: 4px 0px;
+}
+
+.main--signup .gender-option label span:last-child {
+    padding: 0px 24px 0px 12px;
+    color: var(--text-white);
+    font-size: 1.4rem;
+    font-family: var(--font-family-primary);
+}
+
+.main--signup .gender-option label .radio-gender {
+    width: 16px;
+    height: 16px;
+    display: block;
+    background-color: transparent;
+    border-radius: 999px;
+    position: relative;
+    background-color: var(--border-button);
+}
+
+.main--signup .gender-option label:hover .radio-gender {
+    background-color: var(--color-spotify-primary);
+}
+
+.main--signup .gender-option label.active .radio-gender {
+    background-color: var(--color-spotify-primary);
+}
+
+.main--signup .gender-option label .radio-gender::before {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 15px;
+    height: 15px;
+    top: 50%;
+    left: 50%;
+    background-color: var(--background-base);
+    border-radius: 999px;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s;
+}
+
+.main--signup .gender-option label.active .radio-gender::before {
+    width: 8px;
+    height: 8px;
+}
+
+.main--signup .clause-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.main--signup .clause-wrapper label {
+    display: flex;
+    padding: 16px 0px 16px 16px;
+    border-radius: 5px;
+    background-color: #2a2a2a;
+}
+
+.main--signup .clause-wrapper label span:first-child {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    border-radius: 3px;
+    border: 1px solid var(--text-subdued);
+    background-color: var(--background-base);
+    block-size: 16px;
+    position: relative;
+    transform: translateY(2px);
+}
+
+.main--signup .clause-wrapper label:hover span:first-child {
+    border-color: var(--color-spotify-primary);
+}
+
+.main--signup .clause-wrapper label span:last-child {
+    font-size: 1.4rem;
+    font-family: var(--font-family-primary);
+    padding: 0px 24px 0px 12px;
+    font-weight: 400;
+    width: fit-content;
+}
+
+.main--signup .clause-wrapper label.active span:first-child {
+    background-color: var(--color-spotify-primary);
+    border-color: var(--color-spotify-primary);
+}
+
+.main--signup .clause-wrapper label span:first-child::before {
+    content: '';
+    display: block;
+    position: absolute;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    width: 8px;
+    height: 4px;
+    border-bottom-color: var(--background-base);
+    border-left-color: var(--background-base);
+    border-left-style: solid;
+    border-bottom-style: solid;
+    transform: translate(-50%, -75%) rotate(-45deg);
+    top: 50%;
+    left: 50%;
+}
+
+.main--signup .clause-notice {
+    color: var(--text-white);
+    font-size: 1.4rem;
+}
+
+.main--signup .clause-notice a {
+    color: var(--color-spotify-primary);
+    font-size: 1.4rem;
+    font-weight: 300;
+    text-decoration: underline;
+}
+
+.main--signup .last-step {
+}
+
+/* ------------------- Footer -------------------- */
+
+.main--signup footer {
+    position: fixed;
+    bottom: 0;
+    background-color: transparent;
+    z-index: 999;
+}
+
+.main--signup footer > div {
+    padding: 32px;
+    width: 100%;
+}
+
+.main--signup footer p {
+    font-size: 12px;
+    color: var(--text-subdued);
+    text-align: center;
+}
+
+.main--signup footer p a {
+    text-decoration: underline;
+    color: var(--text-subdued);
+    font-size: 1.2rem;
+}

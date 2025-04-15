@@ -1,0 +1,285 @@
+.main--login {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(rgb(0, 0, 0, 0.8) 0%, rgb(0, 0, 0) 55%);
+    overflow-x: hidden;
+    justify-content: space-between;
+}
+
+.main--login  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 32px;
+}
+
+.main--login .content {
+    width: 740px;
+    height: 855px;
+    padding-bottom: 32px;
+    background-color: var(--background-base);
+    border-radius: 8px;
+}
+
+.main--login .logo_spotify {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 32px 0 8px 0;
+}
+
+.main--login .content > h1 {
+    margin-bottom: 32px;
+    font-size: 32px;
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+}
+
+.main--login .content .logo_spotify a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+}
+
+.main--login .logo_spotify a svg {
+    fill: white;
+    stroke: transparent;
+}
+
+.main--login .login-list {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 0 100px 40px;
+    border-bottom: 1px solid rgba(var(--border-button-rgb), 0.3);
+}
+
+.main--login .login-list button {
+    width: 325px;
+    height: 50px;
+    border-radius: 999px;
+    border: 1px solid var(--border-button);
+    cursor: pointer;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+    padding: 0 35px;
+    font-family: var(--font-family);
+}
+
+.main--login .google-login span:first-child,
+.main--login .facebook-login span:first-child {
+    width: 24px;
+    height: 24px;
+}
+
+.main--login .login-list button span:last-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    margin: 5px auto;
+    font-weight: 600;
+    font-size: 1.6rem;
+}
+
+.main--login .login-list button span:first-child svg {
+    width: 100%;
+    height: 100%;
+}
+
+.main--login .login-list .facebook-login span:first-child {
+    width: 30px;
+    height: 30px;
+    transform: translateX(-2px);
+}
+
+.main--login .login-list .facebook-login span:first-child svg {
+    fill: #1877f2;
+}
+
+.main--login .login-list button:hover {
+    border: 1px solid #fff;
+}
+
+.main--login .login-list button img {
+    width: 24px;
+    height: 24px;
+}
+
+/* ----------------- Form Login ------------ */
+
+.main--login .login-form {
+    padding-top: 40px;
+    width: fit-content;
+    margin: 0 auto;
+    padding-bottom: 32px;
+}
+
+.main--login .login-form label {
+    font-size: 1.4rem;
+    font-family: var(--font-family);
+    padding-bottom: 8px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.main--login .login-form input {
+    width: var(--button-width);
+    height: var(--button-height);
+    padding: 12px 48px 12px 12px;
+    color: #fff;
+    font-family: var(--font-family);
+    font-size: var(--font-size-text);
+    background-color: transparent;
+    border-radius: 3px;
+    border: 1px solid var(--border-button);
+    transition: all 0.3s;
+}
+
+.main--login .login-form input:hover {
+    box-shadow: 0 0 0 1px #fff;
+}
+
+.main--login .login-form input:focus {
+    box-shadow: 0 0 0 3px #fff;
+}
+
+.main--login .login-form::placeholder {
+    color: var(--border-button);
+    font-family: var(--font-family);
+    font-size: var(--font-size-text);
+}
+
+.username-gr,
+.main--login .password-gr {
+    padding-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.main--login .login-form > button {
+    width: var(--button-width);
+    height: var(--button-height);
+    background-color: rgb(30, 215, 96);
+    border: none;
+    outline: none;
+    font-family: var(--font-family);
+    font-size: var(--font-size-text);
+    color: #000;
+    border-radius: var(--button-radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 8px;
+}
+
+.main--login .login-form > button:hover {
+    transform: scale(1.03);
+    background-color: #3be477;
+}
+
+.main--login .input-password {
+    position: relative;
+}
+
+.main--login button.btn-show-password {
+    position: absolute;
+    margin-top: 16px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family: var(--font-family);
+    font-size: var(--font-size-text);
+    color: #fff;
+    font-weight: 600;
+    width: 24px;
+    height: 24px;
+    transition: all 0.2s;
+    right: 12px;
+    top: -2px;
+    padding: 0;
+}
+
+.main--login button.btn-show-password svg path {
+    transition: all 0.2s;
+}
+
+.main--login button.btn-show-password svg path {
+    fill: rgb(179, 179, 179);
+}
+
+.main--login button.btn-show-password:hover svg path {
+    fill: #fff;
+}
+
+.main--login button.btn-show-password:hover {
+    transform: scale(1.1);
+}
+
+.main--login .btn-show-password.show path {
+    d: path(
+        'M 6.703 7.382 A 6.073 6.073 0 0 0 6.113 10 c 0 3.292 2.614 6 5.887 6 c 3.273 0 5.886 -2.708 5.886 -6 c 0 -0.936 -0.211 -1.825 -0.589 -2.618 c 0.573 0.341 1.115 0.744 1.634 1.204 c 0.674 0.596 1.77 1.793 2.683 3.414 c -0.913 1.62 -2.01 2.818 -2.683 3.414 C 17.037 17.093 14.833 18 12 18 s -5.037 -0.907 -6.931 -2.586 c -0.674 -0.596 -1.77 -1.793 -2.683 -3.414 c 0.913 -1.62 2.01 -2.818 2.683 -3.414 c 0.519 -0.46 1.061 -0.863 1.634 -1.204 Z M 12 4 C 8.671 4 5.996 5.091 3.742 7.089 c -0.896 0.794 -2.3 2.353 -3.381 4.453 L 0.125 12 l 0.236 0.458 c 1.082 2.1 2.485 3.659 3.381 4.453 C 5.996 18.908 8.672 20 12 20 c 3.329 0 6.004 -1.091 8.258 -3.089 c 0.896 -0.794 2.3 -2.353 3.38 -4.453 l 0.237 -0.458 l -0.236 -0.458 c -1.082 -2.1 -2.485 -3.659 -3.381 -4.453 C 18.004 5.09 15.328 4 12 4 Z m 0 2 c 2.125 0 3.886 1.77 3.886 4 S 14.125 14 12 14 s -3.886 -1.77 -3.886 -4 S 9.875 6 12 6 Z'
+    );
+}
+
+/* --------------------- Sign up ------------------- */
+
+.main--login .content > h2.forgot-password {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.main--login .content > h2.forgot-password a {
+    font-size: var(--font-size-text);
+    color: #fff;
+    text-decoration: underline;
+}
+
+.main--login .content > h2.sign-up {
+    font-size: var(--font-size-text);
+    color: var(--text-subdued);
+    text-align: center;
+}
+
+.main--login .content > h2.sign-up a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.main--login .content > h2:hover a {
+    color: rgb(var(--link-hover));
+}
+
+/* ------------------- Footer -------------------- */
+
+.main--login footer {
+}
+
+.main--login footer > div {
+    height: 80px;
+    width: 100%;
+    background-color: var(--background-base);
+    padding: 32px;
+}
+
+.main--login footer p {
+    font-size: 12px;
+    color: var(--text-subdued);
+    text-align: center;
+}
+
+.main--login footer p a {
+    text-decoration: underline;
+    color: var(--text-subdued);
+    font-size: 1.2rem;
+}

@@ -1,0 +1,28 @@
+.main-super-root {
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+}
+
+.main-content-root {
+    width: 100%;
+    height: calc(100% - 80px);
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 2fr 6fr 2fr;
+}
+
+.main--default {
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: var(--background-base);
+    height: calc(100vh - 80px);
+}
+
+.children--root {
+    margin-top: -60px;
+}
+
+.children--root content {
+    padding: unset;
+}

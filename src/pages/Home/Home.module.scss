@@ -1,0 +1,449 @@
+.home--root {
+    margin-top: 80px;
+}
+
+.home--root content {
+    // padding: 0 10px;
+}
+
+.home--root content .banner--main {
+    width: 100%;
+    margin-top: -10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.home--root .banner--main .banner-wrapper-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-shrink: 1;
+    // height: 450px;
+    transition: all 1s;
+    aspect-ratio: 16/7;
+    max-height: 500px;
+}
+
+.home--root .banner-wrapper-list .banner-wrapper-item {
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    flex: 0 0 100%;
+}
+
+.home--root .card {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.home--root .card .card-image {
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.home--root .card .card-image img {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+
+.home--root .banner-wrapper-item .card-desc {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 2;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
+.home--root .card-desc .card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    overflow: hidden;
+}
+
+.home--root .card-desc .card-info span {
+    width: fit-content;
+    display: block;
+    white-space: nowrap;
+    margin-left: auto;
+}
+
+.home--root .card-desc .card-info .card-info-name {
+    color: var(--text-white);
+    font-size: 3rem;
+    font-family: var(--font-family-primary);
+    font-weight: 600;
+}
+
+.home--root .card-desc .card-info .card-info-artist {
+    font-size: 2rem;
+    color: var(--text-white);
+    font-family: var(--font-family-primary);
+}
+
+.home--root .card-desc .card-control {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.home--root button,
+.home--root .btn-play {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.home--root .btn-play {
+    padding: 8px !important;
+    width: 42px;
+    height: 42px;
+}
+
+.home--root .btn-control-follow {
+    width: 50px;
+    height: 50px;
+}
+
+.home--root .btn-control-menu {
+    width: 42px;
+    height: 42px;
+}
+
+.home--root .card-control button:last-child,
+.home--root .btn-play {
+    background-color: var(--spotify-primary-color);
+}
+
+.home--root .card-control button span,
+.home--root .btn-play span {
+    width: 100%;
+    height: 100%;
+}
+
+.home--root .card-control button span img {
+    width: 100%;
+}
+
+.home--root .btn-control-menu svg {
+    fill: var(--text-white);
+    transition: all 0.3s;
+}
+
+.home--root .btn-control-play span svg,
+.home--root .btn-play span svg {
+    fill: #000;
+}
+
+.home--root .btn-control-follow span svg {
+    stroke: rgb(241, 158, 220);
+    stroke-width: 3px;
+}
+
+.home--root .btn-control-follow:hover svg path {
+    box-shadow: 0px 0px 3px #fff;
+}
+
+.home--root .banner-nav {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+}
+
+.home--root .banner-nav .btn-banner-nav {
+    width: 20px;
+    height: 20px;
+    border-radius: 999px;
+    transition: all 0.3s;
+    overflow: hidden;
+    padding: 5px;
+}
+
+.home--root .banner-nav .btn-banner-nav span {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: var(--text-subdued);
+    border-radius: 999px;
+}
+
+.home--root .banner-nav .btn-banner-nav.active span {
+    background-color: var(--text-white);
+}
+
+.home--root .banner-nav .btn-banner-nav:hover span {
+    background-color: var(--text-white);
+}
+
+.home--root content .home-section-wrapper {
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    margin-top: 40px;
+    padding: 0 30px;
+    margin-right: -10px;
+}
+
+.home--root .home-section-wrapper .home-section-item {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow: hidden;
+}
+
+.home--root .home-section-item .section-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.home--root .section-item-header .section-item-title {
+    font-size: 2.4rem;
+    font-family: var(--font-family-primary);
+    color: var(--text-white);
+    font-weight: 600;
+}
+
+.home--root .section-item-header button {
+    padding: 5px;
+}
+
+.home--root .section-item-header button span {
+    font-size: 1.6rem;
+    color: var(--text-white);
+    font-family: var(--font-family-primary);
+    transition: all 0.3s;
+}
+
+.home--root .section-item-header button:hover span {
+    text-shadow: 2px 2px 20px var(--spotify-primary-color), -2px -2px 20px var(--spotify-primary-color);
+}
+
+.home--root .home-section-list-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+
+.home--root .home-section-list-wrapper::before {
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 200px;
+    height: 100%;
+    content: '';
+    display: none;
+    background: linear-gradient(to right, rgba(31, 31, 31, 0.6), transparent);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.home--root .home-section-list-wrapper::after {
+    right: 0;
+    top: 0;
+    position: absolute;
+    width: 200px;
+    height: 100%;
+    content: '';
+    display: none;
+    background: linear-gradient(to left, rgba(31, 31, 31, 0.6), transparent);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.home--root .home-section-list-wrapper.active::before,
+.home--root .home-section-list-wrapper.active::after {
+    display: block;
+}
+
+.home--root .home-section-list-wrapper > button {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    background-color: var(--background-section);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 3;
+    transition: all 0.2s;
+    visibility: hidden;
+    opacity: 0;
+}
+
+
+.home--root .home-section-list-wrapper.active:hover > button{
+    visibility: visible;
+    opacity: 1;
+}
+
+.home--root .home-section-list-wrapper > button:hover {
+    background-color: #2a2a2a;
+}
+
+.home--root .home-section-list-wrapper > button:hover svg {
+    fill: var(--text-white);
+}
+
+.home--root .home-section-list-wrapper > button:first-child {
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.home--root .home-section-list-wrapper > button:last-child {
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.home--root .home-section-list-wrapper > button span {
+    width: 16px;
+    height: 16px;
+}
+
+.home--root .home-section-list-wrapper > button span svg {
+    fill: var(--text-subdued);
+    width: 100%;
+    height: 100%;
+    transition: all 0.2s;
+}
+
+.home--root .home-section-item .section-item-list {
+    display: flex;
+    align-items: center;
+    position: relative;
+    /* transform: translateX(-200px); */
+    width: 100%;
+}
+
+.home--root .section-item-list .section-item-list--item {
+    flex: 0 0 20%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative;
+}
+
+.home--root .section-item-list .section-item-list--item:hover {
+    background-color: var(--background-section);
+}
+
+.home--root .section-item-list .section-item-list--item:hover .btn-play {
+    visibility: visible;
+    opacity: 1;
+    top: 55%;
+}
+
+.home--root .section-item-list .section-item-list--item.playing .btn-play {
+    visibility: visible;
+    opacity: 1;
+    top: 55%;
+}
+
+.will-pause-icon {
+    display: none;
+}
+
+.section-item-list--item.playing .will-play-icon {
+    display: none;
+}
+
+.section-item-list--item.playing .will-pause-icon {
+    display: flex;
+}
+
+.home--root .section-item-list--item .item-wrapper-image {
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+}
+
+.home--root .section-item-list--item .item-wrapper-image img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.home--root .section-item-list--item .item-wrapper-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.home--root .item-wrapper-info .item-wrapper-name {
+    color: var(--text-white);
+    font-family: var(--font-family-primary);
+    font-size: 1.6rem;
+    
+}
+
+.home--root .item-wrapper-info .item-wrapper-artist {
+    color: var(--text-subdued);
+    font-family: var(--font-family-primary);
+    font-size: 1.4rem;
+}
+
+.home--root .item-wrapper-name, .home--root .item-wrapper-artist {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.home--root .section-item-list--item .btn-play {
+    position: absolute;
+    z-index: 4;
+    right: 20px;
+    padding: 6px;
+    background-color: var(--spotify-primary-color);
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
+    width: 35px;
+    height: 35px;
+    top: 60%;
+    z-index: 5;
+    visibility: none;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.home--root .section-item-list--item .btn-play:hover {
+    background-color: var(--color-spotify-primary);
+}
+
+.home--root .section-item-list--item .btn-play svg {
+    fill: #000;
+}
+
+@media (max-width: 1400px) and (min-width: 1200px) {
+    .home--root .section-item-list--item {
+        flex: 0 0 25% !important;
+    }
+}

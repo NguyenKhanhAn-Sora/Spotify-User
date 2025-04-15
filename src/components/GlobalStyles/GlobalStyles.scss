@@ -1,0 +1,233 @@
+@import './reset.scss';
+@import '../../assets/fonts/stylesheet.css';
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Spotify Mix', sans-serif;
+    font-size: 1.6rem;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    overflow: hidden;
+}
+
+:root {
+    --font-family-primary: 'Spotify Mix', sans-serif;
+    --font-size-primary: 1.6rem;
+    --font-weight-primary: 600;
+    --border-button: #7c7c7c;
+    --background-base: #121212;
+    --border-button-rgb: 124, 124, 124;
+    --button-width: 325px;
+    --button-height: 50px;
+    --button-radius: 999px;
+    --font-family: 'Spotify Mix', sans-serif;
+    --font-size-text: 1.6rem;
+    --font-size-title: 3.2rem;
+    --link-hover: 30, 215, 96;
+    --text-subdued: #b3b3b3;
+    --text-white: #fff;
+    --color-spotify-primary: #3be477;
+    --spotify-primary-color: #1ed760;
+    --spotify-primary-color-hover: #3be477;
+    --spotify-button-color: #1db954;
+    --error-color: #f3727f;
+    --error-color-deep: #ed2c3f;
+    --border-radius-primary: 6px;
+    --background-section: #1f1f1f;
+    --background-process-color: #4d4d4d;
+    --wrapper-hover-color: #3f3f3f;
+    --background-button-nav: #d9d9d9;
+    --main-view-grid-width: 100cqw;
+    --content-spacing: clamp(16px, 16px + (100cqw - 600px)/424 * 8, 24px);
+    --grid-template-columns-full: 16px minmax(120px, 6fr) minmax(120px, 4fr) minmax(120px, 3fr) minmax(120px, 2fr)
+        minmax(120px, 1fr);
+    --grid-template-columns-none-date-add: 16px minmax(120px, 6fr) minmax(120px, 4fr) minmax(120px, 3fr)
+        minmax(120px, 1fr);
+    --grid-template-columns-none-album: 16px minmax(120px, 4fr) minmax(120px, 2fr) minmax(120px, 1fr);
+    --grid-template-columns-just-title: 16px minmax(120px, 4fr) minmax(120px, 1fr);
+    --background-popover: #282828;
+    --background-popover-hover: rgba(255, 255, 255, 0.1);
+    --background-color-modal-content: #333;
+    --background-color-modal: rgba(0, 0, 0, 0.7);
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-radius: 999px;
+    font-family: 'Spotify Mix';
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Spotify Mix';
+    font-size: 1.6rem;
+}
+
+svg {
+    width: 100%;
+    height: 100%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+img {
+    width: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.btn-hover-scale-1-0-5 {
+    transform: scale(1.05);
+}
+
+.btn-hover-scale-1-1:hover {
+    transform: scale(1.1);
+}
+
+.btn-hover-white-svg:hover svg {
+    fill: var(--text-white);
+}
+
+.transition-0-3 {
+    transition: all 0.3s;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    overflow: hidden;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+}
+
+.modal-wrapper {
+    background-color: var(--background-color-modal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-content {
+    border-radius: 8px;
+    background-color: var(--background-color-modal-content);
+}
+
+.btn-play-music .btn-will-pause {
+    display: none;
+}
+
+.btn-play-music .btn-will-play {
+    display: flex;
+}
+
+.btn-play-music.playing .btn-will-play {
+    display: none;
+}
+
+.btn-play-music.playing .btn-will-pause {
+    display: flex;
+}
+
+.btn-added svg {
+    fill: var(--spotify-primary-color);
+}
+
+.text-overflow {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.text-overflow-1-lines {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.text-overflow-2-lines {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.text-overflow-3-lines {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+button.btn-add-music > span.btn-add {
+    display: flex;
+}
+
+button.btn-add-music > span.btn-added {
+    display: none;
+}
+
+.btn-add-music.added .btn-add {
+    display: none;
+}
+
+.btn-add-music.added .btn-added {
+    display: flex;
+}
+
+.btn-add-music,
+.btn-share-music,
+.btn-more-option {
+}
+
+.btn-add-music:hover,
+.btn-share-music:hover,
+.btn-more-option:hover {
+    scale: 1.1;
+}
+
+.btn-add-music:hover svg,
+.btn-share-music:hover svg,
+.btn-more-option:hover svg {
+    fill: var(--text-white);
+}

@@ -1,0 +1,124 @@
+.footer--root {
+    padding-top: 40px;
+    width: 100%;
+}
+
+.footer--root .footer-wrapper {
+    padding: 8px 30px 40px;
+}
+
+.footer--root .footer-nav {
+    margin-top: 32px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.footer--root .footer-nav-main {
+    flex: 1 1 50%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer--root .footer-nav-main > ul {
+    width: 20%;
+    margin-bottom: 32px;
+    margin-right: 24px;
+}
+
+.footer--root .footer-nav-main > ul > p {
+    font-size: 1.6rem;
+    color: var(--text-white);
+    font-family: var(--font-family-primary);
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.footer--root .footer-nav-main > ul > a {
+    display: block;
+    margin: 8px 0;
+    width: fit-content;
+}
+
+.footer--root .footer-nav-main > ul > a:hover span {
+    color: var(--text-white);
+    text-decoration: underline;
+}
+
+.footer--root .footer-nav-main > ul > a > span {
+    color: var(--text-subdued);
+    font-size: 1.6rem;
+    font-family: var(--font-family-primary);
+    display: block;
+    padding-bottom: 8px;
+}
+
+.footer--root .footer-nav-social {
+    display: flex;
+    margin-bottom: 40px;
+    align-items: flex-start;
+}
+
+.footer--root .footer-nav-social > div {
+    padding-right: 16px;
+    display: inline;
+}
+
+.footer--root .footer-nav-social > div > a {
+    display: block;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background-color: #292929;
+    cursor: pointer;
+}
+
+.footer--root .footer-nav-social > div > a:hover {
+    background-color: #727272;
+}
+
+.footer--root .footer-nav-social > div > a > svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--text-white);
+}
+
+.footer--root .footer-about {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 16px;
+}
+
+.footer--root .footer-about-main {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer--root .footer-about-main > div {
+    margin-right: 16px;
+    width: fit-content;
+    margin-bottom: 12px;
+}
+
+.footer--root .footer-about-main > div > a > span {
+    color: var(--text-subdued);
+    font-size: 1.4rem;
+    font-family: var(--font-family-primary);
+}
+
+.footer--root .footer-about-main > div > a:hover span {
+    color: (var(--text-white));
+}
+
+.footer--root .footer-about p {
+    color: var(--text-subdued);
+    font-size: 1.4rem;
+    font-family: var(--font-family-primary);
+}
+
+.footer--root .footer-wrapper hr {
+    border-color: rgba(255, 255, 255, 0.2);
+}
