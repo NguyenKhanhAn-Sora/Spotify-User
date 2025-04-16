@@ -2,6 +2,7 @@ import styles from './PlaylistPage.module.scss';
 import classNames from 'classnames/bind';
 import LifeImg from '../../assets/img/Music-Image/Life.jfif';
 import { useState, useEffect, useRef } from 'react';
+import SoundWave from '../../assets/img/soundwave.gif';
 
 function PlaylistPage() {
     const cx = classNames.bind(styles);
@@ -309,10 +310,12 @@ function PlaylistPage() {
                                                             <div className={cx('playlist-item')} key={songIndex}>
                                                                 <div className={cx('item-index-wrapper')}>
                                                                     <div className={cx('item-index')}>
-                                                                        <div className={cx('item-index-show')}>
-                                                                            <span>1</span>
-                                                                            <span>
-                                                                                <img src="" alt="" />
+                                                                        <div className={cx('item-index-show')} >
+                                                                            <span className={cx('index')}
+                                                                                style={{display: 'none'}}
+                                                                            >1</span>
+                                                                            <span className={cx('sound-wave')}>
+                                                                                <img src={SoundWave} alt="" />
                                                                             </span>
                                                                         </div>
                                                                         <div className={cx('item-index-hover')}>

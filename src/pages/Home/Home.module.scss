@@ -209,7 +209,7 @@
 .home--root .home-section-wrapper .home-section-item {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 5px;
     overflow: hidden;
 }
 
@@ -218,17 +218,30 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 10px;
+    height: 48px;
 }
 
 .home--root .section-item-header .section-item-title {
+    display: flex;
+    height: 100%;
+    width: auto;
+    align-items: flex-end;
+}
+
+.home--root .section-item-header .section-item-title span {
     font-size: 2.4rem;
     font-family: var(--font-family-primary);
     color: var(--text-white);
     font-weight: 600;
+
 }
 
 .home--root .section-item-header button {
     padding: 5px;
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+    width: auto;
 }
 
 .home--root .section-item-header button span {
@@ -293,8 +306,7 @@
     opacity: 0;
 }
 
-
-.home--root .home-section-list-wrapper.active:hover > button{
+.home--root .home-section-list-wrapper.active:hover > button {
     visibility: visible;
     opacity: 1;
 }
@@ -401,7 +413,6 @@
     color: var(--text-white);
     font-family: var(--font-family-primary);
     font-size: 1.6rem;
-    
 }
 
 .home--root .item-wrapper-info .item-wrapper-artist {
@@ -410,7 +421,8 @@
     font-size: 1.4rem;
 }
 
-.home--root .item-wrapper-name, .home--root .item-wrapper-artist {
+.home--root .item-wrapper-name,
+.home--root .item-wrapper-artist {
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;

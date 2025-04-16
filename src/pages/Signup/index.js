@@ -1,6 +1,6 @@
 import styles from './Signup.module.scss';
 import classNames from 'classnames/bind';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function Signup() {
@@ -185,6 +185,19 @@ function Signup() {
     const stepTitle = ['Create a password', 'Tell us about yourself', 'Terms & Conditions'];
     const currentTitle = stepTitle[step - 1];
 
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            if (step == 0) {
+                handleNextClickStep1(e);
+            } else if (step == 1) {
+                handleNextClickStep2(e);
+            } else if (step == 3) {
+                handleNextClickStep3(e);
+                
+            }
+        }
+    });
+
     return (
         <div className={cx('main--signup')}>
             <div className={cx('root-main')}>
@@ -254,7 +267,9 @@ function Signup() {
                                                 <path d="M7.25 9V4h1.5v5h-1.5zm0 3.026v-1.5h1.5v1.5h-1.5z"></path>
                                             </svg>
                                         </span>
-                                        <span>This email is invalid. Make sure it's written like example@email.com</span>
+                                        <span>
+                                            This email is invalid. Make sure it's written like example@email.com
+                                        </span>
                                     </div>
                                 </div>
                                 <a href="">Use phone number.</a>
@@ -329,7 +344,9 @@ function Signup() {
                             <div className={step == 1 ? cx('step-2', 'show') : cx('step-2')}>
                                 <div className={cx('step-content')}>
                                     <div
-                                        className={isPassWord ? cx('password-gr', 'not-error') : cx('password-gr', 'error')}
+                                        className={
+                                            isPassWord ? cx('password-gr', 'not-error') : cx('password-gr', 'error')
+                                        }
                                     >
                                         <label htmlFor="password">Password</label>
                                         <div className={cx('input-password')}>
@@ -467,7 +484,9 @@ function Signup() {
                             </div>
                             <div className={step == 2 ? cx('step-3', 'show') : cx('step-3')}>
                                 <div className={cx('step-content')}>
-                                    <div className={isName ? cx('username-gr', 'not-error') : cx('username-gr', 'error')}>
+                                    <div
+                                        className={isName ? cx('username-gr', 'not-error') : cx('username-gr', 'error')}
+                                    >
                                         <label htmlFor="username">Name</label>
                                         <p>This name will appear on your profile</p>
                                         <input
@@ -621,8 +640,8 @@ function Signup() {
                                     <div className={cx('gender')}>
                                         <label htmlFor="">Gender</label>
                                         <p>
-                                            We use your gender to help personalize our content recommendations and ads for
-                                            you.
+                                            We use your gender to help personalize our content recommendations and ads
+                                            for you.
                                         </p>
                                         <div className={cx('gender-option')}>
                                             {genderList.map((genderItem, index) => (
@@ -646,7 +665,6 @@ function Signup() {
                                                     role="img"
                                                     aria-label="Error:"
                                                     aria-hidden="true"
-                                                    className="Svg-sc-ytk21e-0 kisTW IconExclamationCircleForText-sc-1lnefk5-0 ryVAU"
                                                     viewBox="0 0 16 16"
                                                 >
                                                     <path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"></path>
@@ -687,8 +705,8 @@ function Signup() {
                                         <a href="">Terms and Conditions of Use</a>.
                                     </span>
                                     <span className={cx('clause-notice')}>
-                                        To learn more about how Spotify collects, uses, shares and protects your personal
-                                        data, please see <a href="">Spotify's Privacy Policy</a>.
+                                        To learn more about how Spotify collects, uses, shares and protects your
+                                        personal data, please see <a href="">Spotify's Privacy Policy</a>.
                                     </span>
                                     <button className={cx('next-step')} type="button">
                                         <span>Sign up</span>

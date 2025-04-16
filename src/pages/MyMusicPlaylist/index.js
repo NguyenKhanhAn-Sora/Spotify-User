@@ -3,6 +3,7 @@ import classNames from 'classnames/bind';
 import { useRef, useState } from 'react';
 import LifeImg from '../../assets/img/Music-Image/Life.jfif';
 import { Link } from 'react-router-dom';
+import SoundWave from '../../assets/img/soundwave.gif';
 
 function MyMusicPlaylist() {
     const cx = classNames.bind(styles);
@@ -56,7 +57,6 @@ function MyMusicPlaylist() {
     const [playlistDesc, setPlaylistDesc] = useState(''); //Playlist Description
     const [playlistImage, setPlaylistImage] = useState(null); //Playlist Image
 
-
     // Preview Image Playlist
     const handlePreviewImage = (e) => {
         const file = e.target.files[0];
@@ -64,8 +64,6 @@ function MyMusicPlaylist() {
         console.log(file);
         setPlaylistImage(file);
     };
-
-
 
     // Set Event When user Oder Playlist belong "List" or "Compact"
     const filterList = ['List', 'Compact'];
@@ -78,13 +76,10 @@ function MyMusicPlaylist() {
         }
     };
 
-
     const inputFillRef = useRef();
     const inputEnterRef = useRef();
     const [labelName, setLabelName] = useState(false);
     const [labelDesc, setLabelDesc] = useState(false);
-
-
 
     // Set Event When User Keydown "Enter" In Description - Edit Modal
     const handleKeyDownEnter = (e) => {
@@ -95,8 +90,6 @@ function MyMusicPlaylist() {
             inputFillRef.current.style.display = 'none';
         }
     };
-
-
 
     // Set Event OnClick "Save" Button In Edit Modal
 
@@ -511,9 +504,14 @@ function MyMusicPlaylist() {
                                                                 <div className={cx('item-index-wrapper')}>
                                                                     <div className={cx('item-index')}>
                                                                         <div className={cx('item-index-show')}>
-                                                                            <span>1</span>
-                                                                            <span>
-                                                                                <img src="" alt="" />
+                                                                            <span
+                                                                                className={cx('index')}
+                                                                                style={{ display: 'none' }}
+                                                                            >
+                                                                                1
+                                                                            </span>
+                                                                            <span className={cx('sound-wave')}>
+                                                                                <img src={SoundWave} alt="" />
                                                                             </span>
                                                                         </div>
                                                                         <div className={cx('item-index-hover')}>
@@ -609,9 +607,14 @@ function MyMusicPlaylist() {
                                                                 <div className={cx('item-index-wrapper')}>
                                                                     <div className={cx('item-index')}>
                                                                         <div className={cx('item-index-show')}>
-                                                                            <span>1</span>
-                                                                            <span>
-                                                                                <img src="" alt="" />
+                                                                            <span
+                                                                                className={cx('index')}
+                                                                                style={{ display: 'none' }}
+                                                                            >
+                                                                                1
+                                                                            </span>
+                                                                            <span className={cx('sound-wave')}>
+                                                                                <img src={SoundWave} alt="" />
                                                                             </span>
                                                                         </div>
                                                                         <div className={cx('item-index-hover')}>

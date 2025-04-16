@@ -373,7 +373,9 @@ function Home() {
                     {sectionLists.map((item, sectionIndex) => (
                         <section key={sectionIndex} className={cx('home-section-item')}>
                             <div className={cx('section-item-header')}>
-                                <div className={cx('section-item-title')}>{item.title}</div>
+                                <div className={cx('section-item-title')}>
+                                    <span>{item.title}</span>
+                                </div>
                                 <button className={cx('btn-see-all')}>
                                     <span>See All</span>
                                 </button>
