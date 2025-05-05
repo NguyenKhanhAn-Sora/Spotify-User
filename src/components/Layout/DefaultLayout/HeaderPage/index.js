@@ -45,13 +45,6 @@ function HeaderPage() {
                 <div className={cx('header--main')}>
                     <ul className={cx('nav-list--main')}>
                         <li className={cx('nav-item--main')}>
-                            <Link to="/">
-                                <a href="" className={cx('nav-item-link--main')}>
-                                    Home
-                                </a>
-                            </Link>
-                        </li>
-                        <li className={cx('nav-item--main')}>
                             <Link to="/allpage">
                                 <a href="" className={cx('nav-item-link--main')}>
                                     All

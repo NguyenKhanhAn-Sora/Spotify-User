@@ -4,14 +4,18 @@ import HomeImg from '../../../../assets/img/icon/home-icon.png';
 import PlaylistImg from '../../../../assets/img/icon/music-icon.png';
 import MicroImg from '../../../../assets/img/icon/micro-icon.png';
 import LifeImg from '../../../../assets/img/Music-Image/Life.jfif';
-import { Fragment, useState } from 'react';
+import { Fragment, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import Context from '../../../../store/Context';
 
 function Nav() {
     const cx = classNames.bind(styles);
 
     const [showPlaylist, setShowPlaylist] = useState(false);
     const [showPodcastList, setShowPodcastList] = useState(false);
+    const [showNoticePlaylist, setShowNoticePlaylist] = useState(false);
+    const [showNoticePodcast, setShowNoticePodcast] = useState(false);
+
     const myPlaylistList = [
         {
             id: 1,
@@ -122,6 +126,8 @@ function Nav() {
         },
     ];
 
+    const { isLogin, setIsLogin } = useContext(Context);
+
     return (
         <nav className={cx('nav--root')}>
             <header>
@@ -141,7 +147,7 @@ function Nav() {
                             ></path>
                         </svg>
                     </span>
-                    <span>Spotify</span>
+                    <span>Spotify Lite</span>
                 </div>
             </header>
             <content>
@@ -153,257 +159,301 @@ function Nav() {
                         <span>Home</span>
                     </div>
                 </Link>
-                <div className={cx('playlist--nav-wrapper')}>
-                    <div
-                        className={cx('playlist--nav', 'nav-hover')}
-                        onClick={() => {
-                            setShowPlaylist(!showPlaylist);
-                        }}
-                    >
-                        <div className={cx('playlist-icon')}>
-                            <img src={PlaylistImg} alt="Life" />
+                {isLogin && (
+                    <div className={cx('playlist--nav-wrapper')}>
+                        <div
+                            className={cx('playlist--nav', 'nav-hover')}
+                            onClick={() => {
+                                setShowPlaylist(!showPlaylist);
+                            }}
+                        >
+                            <div className={cx('playlist-icon')}>
+                                <img src={PlaylistImg} alt="Life" />
+                            </div>
+                            <span>Playlist</span>
+                            <button className={cx('btn-acheron-dow')}>
+                                <span>
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        strokeWidth="1.5"
+                                        stroke="currentColor"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                                        />
+                                    </svg>
+                                </span>
+                            </button>
                         </div>
-                        <span>Playlist</span>
-                        <button className={cx('btn-acheron-dow')}>
-                            <span>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    strokeWidth="1.5"
-                                    stroke="currentColor"
-                                >
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                                </svg>
-                            </span>
+
+                        {showPlaylist && (
+                            <div className={cx('playlist-list-box')}>
+                                <div className={cx('playlist-list-container')}>
+                                    {myPlaylistList.map((playlistItem, playlistIndex) => (
+                                        <div className={cx('playlist-item')}>
+                                            <Link to={'/mymusicplaylist'}>
+                                                <div className={cx('playlist-item-wrapper')}>
+                                                    <div className={cx('playlist-item-image')}>
+                                                        <img src={playlistItem.image} alt="" />
+                                                        <div className={cx('queue--over')}>
+                                                            <button>
+                                                                <span>
+                                                                    <svg
+                                                                        data-encore-id="icon"
+                                                                        role="img"
+                                                                        aria-hidden="true"
+                                                                        viewBox="0 0 24 24"
+                                                                    >
+                                                                        <path d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"></path>
+                                                                    </svg>
+                                                                </span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div className={cx('playlist-item-info')}>
+                                                        <div className={cx('playlist-item-name')}>
+                                                            <span>{playlistItem.name} </span>
+                                                        </div>
+                                                        <div className={cx('playlist-item-desc')}>
+                                                            <span> Playlist </span>
+                                                            <span className={cx('count-song-in-playlist')}>
+                                                                {playlistItem.songs.length}{' '}
+                                                            </span>
+                                                            <span> songs </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </Link>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                )}
+                {!isLogin && (
+                    <div className={cx('create-playlist--nav')}>
+                        <h2>Create your playlist</h2>
+                        <p>It's easy, we'll have you</p>
+                        <button
+                            className={cx('btn-browse-nav', 'btn-create-playlist')}
+                            onClick={() => {
+                                setShowNoticePlaylist(true);
+                                setShowNoticePodcast(false);
+                            }}
+                        >
+                            <span>Create playlist</span>
                         </button>
                     </div>
-                    {showPlaylist && (
-                        <div className={cx('playlist-list-box')}>
-                            <div className={cx('playlist-list-container')}>
-                                {myPlaylistList.map((playlistItem, playlistIndex) => (
-                                    <div className={cx('playlist-item')}>
-                                        <Link to={'/mymusicplaylist'}>
-                                            <div className={cx('playlist-item-wrapper')}>
-                                                <div className={cx('playlist-item-image')}>
-                                                    <img src={playlistItem.image} alt="" />
-                                                    <div className={cx('queue--over')}>
-                                                        <button>
-                                                            <span>
-                                                                <svg
-                                                                    data-encore-id="icon"
-                                                                    role="img"
-                                                                    aria-hidden="true"
-                                                                    viewBox="0 0 24 24"
-                                                                >
-                                                                    <path d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"></path>
-                                                                </svg>
-                                                            </span>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                                <div className={cx('playlist-item-info')}>
-                                                    <div className={cx('playlist-item-name')}>
-                                                        <span>{playlistItem.name} </span>
-                                                    </div>
-                                                    <div className={cx('playlist-item-desc')}>
-                                                        <span> Playlist </span>
-                                                        <span className={cx('count-song-in-playlist')}>
-                                                            {playlistItem.songs.length}{' '}
-                                                        </span>
-                                                        <span> songs </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </Link>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    )}
-                </div>
-                <div className={cx('create-playlist--nav')}>
-                    <h2>Create your playlist</h2>
-                    <p>It's easy, we'll have you</p>
-                    <button className={cx('btn-browse-nav', 'btn-create-playlist')}>
-                        <span>Create playlist</span>
-                    </button>
-                </div>
-                <div className={cx('playlist-list--nav')} style={{ display: 'none' }}>
-                    <div className={cx('music-next-queue--wrapper', 'queue-wrapper', 'playlist-queue-wrapper')}>
-                        <div className={cx('music-next-image', 'queue-image')}>
-                            <img src={LifeImg} alt="Life" />
-                            <div className={cx('music-next-queue--over', 'queue--over')}>
+                )}
+                {showNoticePlaylist && (
+                    <div className={cx('notice-unlogin')}>
+                        <div className={cx('notice-unlogin-wrapper')}>
+                            <h3>Create a playlist</h3>
+                            <p>Log in to create and share playlist</p>
+                            <div className={cx('btn-notice-unlogin')}>
+                                <button
+                                    onClick={() => {
+                                        setShowNoticePlaylist(false);
+                                    }}
+                                >
+                                    <span>Not now</span>
+                                </button>
                                 <button>
-                                    <span>
-                                        <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 24 24">
-                                            <path d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"></path>
-                                        </svg>
-                                    </span>
+                                    <Link to="/login">
+                                        <span>Log in</span>
+                                    </Link>
                                 </button>
                             </div>
                         </div>
-                        <div className={cx('music-next-info', 'queue-info')}>
-                            <div className={cx('music-next-name', 'queue-name')}>
-                                <span>Bugs</span>
-                            </div>
-                            <div className={cx('music-next-artist', 'queue-desc')}>
-                                <span>Ellie Minibot</span>
-                            </div>
-                        </div>
-                        <button className={cx('btn-queue-music')}>
-                            <span>
-                                <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16">
-                                    <path d="M3 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm6.5 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM16 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"></path>
-                                </svg>
-                            </span>
-                        </button>
                     </div>
-                </div>
-                <div className={cx('podcast--nav-wrapper')}>
-                    <div
-                        className={cx('podcast--nav', 'nav-hover')}
-                        onClick={() => {
-                            setShowPodcastList(!showPodcastList);
-                        }}
-                    >
-                        <div className={cx('podcast-icon')}>
-                            <img src={MicroImg} alt="Life" />
-                        </div>
-                        <span>Podcast</span>
-                        <button className={cx('btn-acheron-dow')}>
-                            <span>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    strokeWidth="1.5"
-                                    stroke="currentColor"
-                                >
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                                </svg>
-                            </span>
-                        </button>
-                    </div>
-                    {showPodcastList && (
-                        <div className={cx('playlist-list-box', 'playlist-podcast-box')}>
-                            <div className={cx('playlist-list-container')}>
-                                {myPodcastList.map((podcastItem, podcastIndex) => (
-                                    <div className={cx('playlist-item')}>
-                                        <Link to="/mypodcastplaylist">
-                                            <div className={cx('playlist-item-wrapper')}>
-                                                <div className={cx('playlist-item-image')}>
-                                                    <img src={podcastItem.image} alt="" />
-                                                    <div className={cx('queue--over')}>
-                                                        <button>
-                                                            <span>
-                                                                <svg
-                                                                    data-encore-id="icon"
-                                                                    role="img"
-                                                                    aria-hidden="true"
-                                                                    viewBox="0 0 24 24"
-                                                                >
-                                                                    <path d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"></path>
-                                                                </svg>
-                                                            </span>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                                <div className={cx('playlist-item-info')}>
-                                                    <div className={cx('playlist-item-name')}>
-                                                        <span>{podcastItem.name} </span>
-                                                    </div>
-                                                    <div className={cx('playlist-item-desc')}>
-                                                        <span> Episodes </span>
-                                                        <span className={cx('count-song-in-playlist')}>
-                                                            {podcastItem.songs.length}{' '}
-                                                        </span>
-                                                        <span> podcasts </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </Link>
-                                    </div>
-                                ))}
+                )}
+                {isLogin && (
+                    <div className={cx('podcast--nav-wrapper')}>
+                        <div
+                            className={cx('podcast--nav', 'nav-hover')}
+                            onClick={() => {
+                                setShowPodcastList(!showPodcastList);
+                            }}
+                        >
+                            <div className={cx('podcast-icon')}>
+                                <img src={MicroImg} alt="Life" />
                             </div>
-                        </div>
-                    )}
-                </div>
-                <div className={cx('browse-podcast--nav')}>
-                    <h2>Let's find some podcast to follow</h2>
-                    <p>We'll keep you updated on new episodes</p>
-                    <button className={cx('btn-browse-nav', 'btn-browse-podcast')}>
-                        <span>Browse Podcast</span>
-                    </button>
-                </div>
-                <div className={cx('browse-category--nav')}>
-                    <div className={cx('browse-category-header')}>
-                        <h3>Browse</h3>
-                        <Link to={'/browse'}>
-                            <button className={cx('btn-see-all')}>
-                                <span>See all</span>
+                            <span>Podcast</span>
+                            <button className={cx('btn-acheron-dow')}>
+                                <span>
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        strokeWidth="1.5"
+                                        stroke="currentColor"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                                        />
+                                    </svg>
+                                </span>
                             </button>
-                        </Link>
+                        </div>
+                        {showPodcastList && (
+                            <div className={cx('playlist-list-box', 'playlist-podcast-box')}>
+                                <div className={cx('playlist-list-container')}>
+                                    {myPodcastList.map((podcastItem, podcastIndex) => (
+                                        <div className={cx('playlist-item')}>
+                                            <Link to="/mypodcastplaylist">
+                                                <div className={cx('playlist-item-wrapper')}>
+                                                    <div className={cx('playlist-item-image')}>
+                                                        <img src={podcastItem.image} alt="" />
+                                                        <div className={cx('queue--over')}>
+                                                            <button>
+                                                                <span>
+                                                                    <svg
+                                                                        data-encore-id="icon"
+                                                                        role="img"
+                                                                        aria-hidden="true"
+                                                                        viewBox="0 0 24 24"
+                                                                    >
+                                                                        <path d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"></path>
+                                                                    </svg>
+                                                                </span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div className={cx('playlist-item-info')}>
+                                                        <div className={cx('playlist-item-name')}>
+                                                            <span>{podcastItem.name} </span>
+                                                        </div>
+                                                        <div className={cx('playlist-item-desc')}>
+                                                            <span> Episodes </span>
+                                                            <span className={cx('count-song-in-playlist')}>
+                                                                {podcastItem.songs.length}{' '}
+                                                            </span>
+                                                            <span> podcasts </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </Link>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
                     </div>
-                    <div className={cx('browse-category-wrapper')}>
-                        <ul className={cx('browse-list')}>
-                            <li className={cx('browse-item')}>
-                                <h4>Music</h4>
-                                <div className={cx('browse-item-image')}>
-                                    <img
-                                        src="https://i.scdn.co/image/ab67fb8200005caf474a477debc822a3a45c5acb"
-                                        alt="Life"
-                                    />
-                                </div>
-                            </li>
-                            <li className={cx('browse-item')}>
-                                <h4>Music</h4>
-                                <div className={cx('browse-item-image')}>
-                                    <img
-                                        src="https://i.scdn.co/image/ab67fb8200005caf474a477debc822a3a45c5acb"
-                                        alt="Life"
-                                    />
-                                </div>
-                            </li>
-                            <li className={cx('browse-item')}>
-                                <h4>Music</h4>
-                                <div className={cx('browse-item-image')}>
-                                    <img
-                                        src="https://i.scdn.co/image/ab67fb8200005caf474a477debc822a3a45c5acb"
-                                        alt="Life"
-                                    />
-                                </div>
-                            </li>
-                            <li className={cx('browse-item')}>
-                                <h4>Music</h4>
-                                <div className={cx('browse-item-image')}>
-                                    <img
-                                        src="https://i.scdn.co/image/ab67fb8200005caf474a477debc822a3a45c5acb"
-                                        alt="Life"
-                                    />
-                                </div>
-                            </li>
-                            <li className={cx('browse-item')}>
-                                <h4>Music</h4>
-                                <div className={cx('browse-item-image')}>
-                                    <img
-                                        src="https://i.scdn.co/image/ab67fb8200005caf474a477debc822a3a45c5acb"
-                                        alt="Life"
-                                    />
-                                </div>
-                            </li>
-                            <li className={cx('browse-item')}>
-                                <h4>Music</h4>
-                                <div className={cx('browse-item-image')}>
-                                    <img
-                                        src="https://i.scdn.co/image/ab67fb8200005caf474a477debc822a3a45c5acb"
-                                        alt="Life"
-                                    />
-                                </div>
-                            </li>
-                        </ul>
+                )}
+                {!isLogin && (
+                    <div className={cx('browse-podcast--nav')}>
+                        <h2>Let's find some podcast to follow</h2>
+                        <p>We'll keep you updated on new episodes</p>
+                        <button
+                            className={cx('btn-browse-nav', 'btn-browse-podcast')}
+                            onClick={() => {
+                                setShowNoticePodcast(true);
+                                setShowNoticePlaylist(false);
+                            }}
+                        >
+                            <span>Browse Podcast</span>
+                        </button>
                     </div>
-                </div>
+                )}
+                {showNoticePodcast && (
+                    <div className={cx('notice-unlogin')}>
+                        <div className={cx('notice-unlogin-wrapper')}>
+                            <h3>Browse Podcast</h3>
+                            <p>Log in to Browse All Podcast</p>
+                            <div className={cx('btn-notice-unlogin')}>
+                                <button
+                                    onClick={() => {
+                                        setShowNoticePodcast(false);
+                                    }}
+                                >
+                                    <span>Not now</span>
+                                </button>
+                                <button>
+                                    <Link to="/login">
+                                        <span>Log in</span>
+                                    </Link>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                )}
+                {isLogin && (
+                    <div className={cx('browse-category--nav')}>
+                        <div className={cx('browse-category-header')}>
+                            <h3>Browse</h3>
+                            <Link to={'/browse'}>
+                                <button className={cx('btn-see-all')}>
+                                    <span>See all</span>
+                                </button>
+                            </Link>
+                        </div>
+                        <div className={cx('browse-category-wrapper')}>
+                            <ul className={cx('browse-list')}>
+                                <li className={cx('browse-item')}>
+                                    <h4>Music</h4>
+                                    <div className={cx('browse-item-image')}>
+                                        <img
+                                            src="https://i.scdn.co/image/ab67fb8200005caf474a477debc822a3a45c5acb"
+                                            alt="Life"
+                                        />
+                                    </div>
+                                </li>
+                                <li className={cx('browse-item')}>
+                                    <h4>Music</h4>
+                                    <div className={cx('browse-item-image')}>
+                                        <img
+                                            src="https://i.scdn.co/image/ab67fb8200005caf474a477debc822a3a45c5acb"
+                                            alt="Life"
+                                        />
+                                    </div>
+                                </li>
+                                <li className={cx('browse-item')}>
+                                    <h4>Music</h4>
+                                    <div className={cx('browse-item-image')}>
+                                        <img
+                                            src="https://i.scdn.co/image/ab67fb8200005caf474a477debc822a3a45c5acb"
+                                            alt="Life"
+                                        />
+                                    </div>
+                                </li>
+                                <li className={cx('browse-item')}>
+                                    <h4>Music</h4>
+                                    <div className={cx('browse-item-image')}>
+                                        <img
+                                            src="https://i.scdn.co/image/ab67fb8200005caf474a477debc822a3a45c5acb"
+                                            alt="Life"
+                                        />
+                                    </div>
+                                </li>
+                                <li className={cx('browse-item')}>
+                                    <h4>Music</h4>
+                                    <div className={cx('browse-item-image')}>
+                                        <img
+                                            src="https://i.scdn.co/image/ab67fb8200005caf474a477debc822a3a45c5acb"
+                                            alt="Life"
+                                        />
+                                    </div>
+                                </li>
+                                <li className={cx('browse-item')}>
+                                    <h4>Music</h4>
+                                    <div className={cx('browse-item-image')}>
+                                        <img
+                                            src="https://i.scdn.co/image/ab67fb8200005caf474a477debc822a3a45c5acb"
+                                            alt="Life"
+                                        />
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                )}
             </content>
         </nav>
     );

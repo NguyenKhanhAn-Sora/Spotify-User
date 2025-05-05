@@ -11,18 +11,21 @@
     margin-top: 32px;
     display: flex;
     align-items: flex-start;
+    flex-wrap: wrap;
 }
 
 .footer--root .footer-nav-main {
     flex: 1 1 50%;
     display: flex;
     flex-wrap: wrap;
+    min-width: calc(125px + 125px + 50px);
 }
 
 .footer--root .footer-nav-main > ul {
     width: 20%;
     margin-bottom: 32px;
     margin-right: 24px;
+    min-width: 125px;
 }
 
 .footer--root .footer-nav-main > ul > p {
@@ -89,6 +92,7 @@
     display: flex;
     justify-content: space-between;
     padding-top: 16px;
+    flex-wrap: wrap;
 }
 
 .footer--root .footer-about-main {
@@ -117,6 +121,7 @@
     color: var(--text-subdued);
     font-size: 1.4rem;
     font-family: var(--font-family-primary);
+    min-width: fit-content;
 }
 
 .footer--root .footer-wrapper hr {

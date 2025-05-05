@@ -193,7 +193,6 @@ function Signup() {
                 handleNextClickStep2(e);
             } else if (step == 3) {
                 handleNextClickStep3(e);
-                
             }
         }
     });
@@ -634,7 +633,7 @@ function Signup() {
                                                     <path d="M7.25 9V4h1.5v5h-1.5zm0 3.026v-1.5h1.5v1.5h-1.5z"></path>
                                                 </svg>
                                             </span>
-                                            <span>You’re too young to create a Spotify account.</span>
+                                            <span>You’re too young to create a Spotify Lite account.</span>
                                         </div>
                                     </div>
                                     <div className={cx('gender')}>
@@ -720,9 +719,13 @@ function Signup() {
                             <p>
                                 This site is protected by reCAPTCHA and the Google&nbsp;
                                 <br />
-                                <a href="">Privacy Policy</a>
+                                <a target="blank" href="https://policies.google.com/privacy">
+                                    Privacy Policy
+                                </a>
                                 &nbsp;and&nbsp;
-                                <a href="">Terms of Service</a>
+                                <a target="blank" href="https://policies.google.com/terms">
+                                    Terms of Service
+                                </a>
                                 &nbsp;apply.
                             </p>
                         </div>

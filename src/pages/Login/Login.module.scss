@@ -8,7 +8,7 @@
     justify-content: space-between;
 }
 
-.main--login  main {
+.main--login main {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -153,17 +153,67 @@
     box-shadow: 0 0 0 3px #fff;
 }
 
+.main--login .username-gr.not-error input:focus-visible {
+    box-shadow: 0 0 0 3px #fff;
+    outline: none;
+    border: unset;
+}
+
 .main--login .login-form::placeholder {
     color: var(--border-button);
     font-family: var(--font-family);
     font-size: var(--font-size-text);
 }
 
-.username-gr,
+.main--login .username-gr,
 .main--login .password-gr {
     padding-bottom: 16px;
     display: flex;
     flex-direction: column;
+}
+
+.main--login .email-error {
+    display: none;
+    gap: 4px;
+    margin-top: 5px;
+    max-width: 325px;
+}
+
+.main--login .email-error.active {
+    display: flex;
+}
+
+.main--login .email-error span:first-child {
+    width: 16px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main--login .email-error svg {
+    fill: var(--error-color);
+    color: var(--error-color);
+    width: 16px;
+    height: 20px;
+}
+
+.main--login .email-error span {
+    color: var(--error-color);
+    font-size: 1.4rem;
+    font-family: var(--font-family-primary);
+}
+
+.main--login .username-gr.error input {
+    box-shadow: 0 0 0 1px #e91429;
+    border: 1px solid #e91429;
+    outline: none;
+}
+
+.main--login .username-gr.error input:focus {
+    box-shadow: 0 0 0 1px #e91429;
+    border: 1px solid #e91429;
+    outline: none;
 }
 
 .main--login .login-form > button {
@@ -282,4 +332,8 @@
     text-decoration: underline;
     color: var(--text-subdued);
     font-size: 1.2rem;
+}
+
+.main--login footer p a:hover {
+    color: var(--text-white);
 }

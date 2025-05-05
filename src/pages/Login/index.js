@@ -12,6 +12,25 @@ function Login() {
         setPasswordShown(!passwordShown);
     };
 
+    const [email, setEmail] = useState('');
+    const [isEmail, setIsEmail] = useState(true);
+    const [password, setPassword] = useState('');
+
+    function validateEmail(email) {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+    }
+
+    function handleonBlurEmail(e) {
+        const testEmail = validateEmail(email);
+        if (testEmail) {
+            setIsEmail(true);
+        } else {
+            e.preventDefault();
+            setIsEmail(false);
+        }
+    }
+
     return (
         <div className={cx('main--login')}>
             <main>
@@ -90,9 +109,32 @@ function Login() {
                         </li>
                     </ul>
                     <form action="" method="post" className={cx('login-form')}>
-                        <div className={cx('username-gr')}>
-                            <label htmlFor="username">Email or username</label>
-                            <input type="text" placeholder="Email or username" name="username" id="username" />
+                        <div className={!isEmail ? cx('username-gr', 'error') : cx('username-gr', 'not-error')}>
+                            <label htmlFor="username">Email address</label>
+                            <input
+                                type="text"
+                                placeholder="name@domain.com"
+                                name="email"
+                                id="email"
+                                onChange={(e) => setEmail(e.target.value)}
+                                onBlur={(e) => handleonBlurEmail(e)}
+                            />
+                            <div className={!isEmail ? cx('email-error', 'active') : cx('email-error')}>
+                                <span>
+                                    <svg
+                                        data-encore-id="icon"
+                                        role="img"
+                                        aria-label="Error:"
+                                        aria-hidden="true"
+                                        className="Svg-sc-ytk21e-0 kisTW IconExclamationCircleForText-sc-1lnefk5-0 ryVAU"
+                                        viewBox="0 0 16 16"
+                                    >
+                                        <path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"></path>
+                                        <path d="M7.25 9V4h1.5v5h-1.5zm0 3.026v-1.5h1.5v1.5h-1.5z"></path>
+                                    </svg>
+                                </span>
+                                <span>This email is invalid. Make sure it's written like example@email.com</span>
+                            </div>
                         </div>
                         <div className={cx('password-gr')}>
                             <label htmlFor="password">Password</label>
@@ -102,6 +144,7 @@ function Login() {
                                     placeholder="Password"
                                     name="password"
                                     id="password"
+                                    onChange={(e) => setPassword(e.target.value)}
                                 />
                                 <button
                                     type="button"
@@ -140,9 +183,13 @@ function Login() {
                 <div>
                     <p>
                         This site is protected by reCAPTCHA and the Google&nbsp;
-                        <a href="">Privacy Policy</a>
+                        <a target="blank" href="https://policies.google.com/privacy">
+                            Privacy Policy
+                        </a>
                         &nbsp;and&nbsp;
-                        <a href="">Terms of Service</a>
+                        <a target="blank" href="https://policies.google.com/terms">
+                            Terms of Service
+                        </a>
                         &nbsp;apply.
                     </p>
                 </div>

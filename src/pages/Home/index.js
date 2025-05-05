@@ -4,9 +4,19 @@ import LifeImg from '../../assets/img/Music-Image/Life.jfif';
 import { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Fragment } from 'react';
+import { Howl } from 'howler';
+import Popover from '../../components/Popover';
 
 function Home() {
     const cx = classNames.bind(styles);
+
+    // --------------------------- Fetch Data Spotify -----------
+
+    const clientId = '716212da027a4052bcfe4246b2ef3e2e';
+    const clientSecret = 'b6acf5a5c31b4441a6b41fb07ef612b8';
+    const [spotifyTracks, setSpotifyTracks] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+
     // -------------- Banner --------------
     const bannerItemsRef = useRef([]);
     const bannerLists = ['banner1', 'banner2', 'banner3'];
@@ -15,22 +25,22 @@ function Home() {
 
     let interval;
 
-    useEffect(() => {
-        interval = setInterval(() => {
-            setBannerTransFormValue((prev) => {
-                if (prev === bannerLists.length - 1) {
-                    return 0; // Nếu đã đến phần tử cuối cùng, quay lại phần tử đầu tiên
-                }
-                return prev + 1; // Tăng giá trị lên 1 để chuyển sang phần tử tiếp theo
-            });
-        }, 5000);
+    // useEffect(() => {
+    //     interval = setInterval(() => {
+    //         setBannerTransFormValue((prev) => {
+    //             if (prev === bannerLists.length - 1) {
+    //                 return 0; // Nếu đã đến phần tử cuối cùng, quay lại phần tử đầu tiên
+    //             }
+    //             return prev + 1; // Tăng giá trị lên 1 để chuyển sang phần tử tiếp theo
+    //         });
+    //     }, 5000);
 
-        return () => clearInterval(interval);
-    }, [bannerTransFormValue]);
+    //     return () => clearInterval(interval);
+    // }, []);
 
     const handleButtonBannerClick = (index) => {
-        setBannerTransFormValue(index); // Cập nhật giá trị của bannerTransFormValue khi nhấn nút
-        clearInterval(interval); // Dừng interval khi nhấn nút
+        setBannerTransFormValue(index);
+        clearInterval(interval);
     };
 
     // -------------- End Banner --------------
@@ -39,159 +49,93 @@ function Home() {
 
     const sectionLists = [
         {
-            title: 'title 1',
-            songs: [
-                {
-                    name: 'song name',
-                    artist: 'song artist',
-                },
-                {
-                    name: 'song name',
-                    artist: 'song artist',
-                },
-                {
-                    name: 'song name',
-                    artist: 'song artist',
-                },
-                {
-                    name: 'song name',
-                    artist: 'song artist',
-                },
-                {
-                    name: 'song name',
-                    artist: 'song artist',
-                },
-                {
-                    name: 'song name',
-                    artist: 'song artist',
-                },
-                {
-                    name: 'song name',
-                    artist: 'song artist',
-                },
-                {
-                    name: 'song name',
-                    artist: 'song artist',
-                },
-            ],
-        },
-        {
-            title: 'title 1',
-            songs: [
-                {
-                    name: 'song name',
-                    artist: 'song artist',
-                },
-                {
-                    name: 'song name',
-                    artist: 'song artist',
-                },
-                {
-                    name: 'song name',
-                    artist: 'song artist',
-                },
-                {
-                    name: 'song name',
-                    artist: 'song artist',
-                },
-                {
-                    name: 'song name',
-                    artist: 'song artist',
-                },
-            ],
-        },
-        {
-            title: 'title 1',
-            songs: [
-                {
-                    name: 'song name',
-                    artist: 'song artist',
-                },
-                {
-                    name: 'song name',
-                    artist: 'song artist',
-                },
-                {
-                    name: 'song name',
-                    artist: 'song artist',
-                },
-                {
-                    name: 'song name',
-                    artist: 'song artist',
-                },
-                {
-                    name: 'song name',
-                    artist: 'song artist',
-                },
-            ],
-        },
-        {
-            title: 'title 1',
-            songs: [
-                {
-                    name: 'song name',
-                    artist: 'song artist',
-                },
-                {
-                    name: 'song name',
-                    artist: 'song artist',
-                },
-                {
-                    name: 'song name',
-                    artist: 'song artist',
-                },
-                {
-                    name: 'song name',
-                    artist: 'song artist',
-                },
-                {
-                    name: 'song name',
-                    artist: 'song artist',
-                },
-            ],
-        },
-        {
-            title: 'title 1',
-            songs: [
-                {
-                    name: 'song name',
-                    artist: 'song artist',
-                },
-                {
-                    name: 'song name',
-                    artist: 'song artist',
-                },
-                {
-                    name: 'song name',
-                    artist: 'song artist',
-                },
-                {
-                    name: 'song name',
-                    artist: 'song artist',
-                },
-                {
-                    name: 'song name',
-                    artist: 'song artist',
-                },
-            ],
+            title: 'Popular Tracks from Spotify',
+            songs:
+                spotifyTracks.length > 0
+                    ? spotifyTracks
+                    : [
+                          {
+                              name: 'Loading tracks...',
+                              artist: 'Please wait',
+                              image: 'https://m.media-amazon.com/images/I/71mgpWBEXHL.jpg',
+                              preview_url: null,
+                          },
+                      ],
         },
     ];
+
+    const soundRef = useRef(null);
+
+    const handleGetSound = (e) => {
+        const file = e.target.files[0];
+        file.audio = URL.createObjectURL(file);
+        soundRef.current = new Howl({
+            src: [file.audio],
+            format: ['mp3'],
+        });
+    };
+
+    const [playing, setPlaying] = useState(false);
+
+    const [currentTime, setCurrentTime] = useState(0);
+
+    const handleClickPlay = () => {
+        if (soundRef.current) {
+            if (playing == false) {
+                soundRef.current.seek(currentTime);
+                soundRef.current.play();
+                setPlaying(!playing);
+            } else {
+                setCurrentTime(soundRef.current.seek());
+                soundRef.current.stop();
+                setPlaying(!playing);
+            }
+        }
+    };
 
     // -------------- End Section List --------------
     const [selectedSongPlaying, setSelectedSongPlaying] = useState(null);
     const [isHaveMusicPlaying, setIsHaveMusicPlaying] = useState(false);
+
+    // Load Spotify tracks when component mounts
+    useEffect(() => {
+        fetchTrack();
+    }, []);
 
     const handleOnClickSelectedSong = (sectionIndex, songIndex) => {
         const songId = `${sectionIndex}-${songIndex}`;
 
         if (songId === selectedSongPlaying) {
             setIsHaveMusicPlaying(!isHaveMusicPlaying);
+
+            // Toggle play/pause for the current track
+            if (soundRef.current) {
+                if (isHaveMusicPlaying) {
+                    soundRef.current.pause();
+                } else {
+                    soundRef.current.play();
+                }
+            }
         } else {
-            if (isHaveMusicPlaying == false) {
-                setSelectedSongPlaying(songId);
-                setIsHaveMusicPlaying(!isHaveMusicPlaying);
+            // Play new track
+            if (sectionIndex === 0) {
+                // For Spotify tracks section
+                const track = sectionLists[0].songs[songIndex];
+                if (track.preview_url) {
+                    playSpotifyPreview(track.preview_url);
+                    setSelectedSongPlaying(songId);
+                    setIsHaveMusicPlaying(true);
+                } else {
+                    console.error('No preview available for this track');
+                }
             } else {
-                setSelectedSongPlaying(songId);
+                // Previous logic for non-Spotify tracks
+                if (isHaveMusicPlaying == false) {
+                    setSelectedSongPlaying(songId);
+                    setIsHaveMusicPlaying(!isHaveMusicPlaying);
+                } else {
+                    setSelectedSongPlaying(songId);
+                }
             }
         }
     };
@@ -249,24 +193,101 @@ function Home() {
         return () => {
             window.removeEventListener('resize', calculateContainerWidth());
         };
-    }, [sectionLists]);
-
+    }, []);
     console.log('sectionOffset', sectionOffset);
 
-    // const fetchdata = async () => {
-    //     try {
-    //         const response = await fetch(
-    //             'https://api.spotify.com/v1/tracks?ids=1xac19gEfJKe34YoaINqsk,22F7P7QnaVspdf5rKveBaS,2Emlw3C8Rqn9lAen25OItw,703QXwWn5KdNaoviarYHAO,7LVrrX8pkzI9fMF88nGabt&market=from_token',
-    //         );
-    //         const data = await response.json();
-    //         // const maindata = data.data;
-    //         console.log('Fetched data:', data);
-    //     } catch (error) {
-    //         console.error('Error fetching data:', error);
-    //     }
-    // };
+    // --------------------------- Fetch Data Spotify -----------
 
-    // fetchdata();
+    async function getAccessToken() {
+        const tokenUrl = 'https://accounts.spotify.com/api/token';
+
+        // Encode Client ID và Client Secret theo chuẩn base64
+        const basicAuth = btoa(clientId + ':' + clientSecret);
+
+        const response = await fetch(tokenUrl, {
+            method: 'POST',
+            headers: {
+                Authorization: 'Basic ' + basicAuth,
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: 'grant_type=client_credentials',
+        });
+
+        if (!response.ok) {
+            console.error('Failed to get Access Token');
+            return;
+        }
+
+        const data = await response.json();
+        const accessToken = data.access_token;
+        console.log('Access Token:', accessToken);
+
+        return accessToken;
+    }
+
+    async function fetchTrack() {
+        setIsLoading(true);
+        try {
+            const access_token = await getAccessToken();
+            if (!access_token) {
+                console.error('No Access Token found');
+                return;
+            }
+            // Fetch a few popular tracks instead of just one
+            const trackIds = ['11dFghVXANMlKmJXsNCbNl', '5LS1eMPXmBaK5g06GvZA3o', '1zi7xx7UVEFkmKfv06H8x0'];
+            const fetchPromises = trackIds.map((id) =>
+                fetch(`https://api.spotify.com/v1/tracks/${id}`, {
+                    headers: {
+                        Authorization: `Bearer ${access_token}`,
+                    },
+                }).then((res) => res.json()),
+            );
+
+            const tracksData = await Promise.all(fetchPromises);
+            console.log('Tracks Data:', tracksData);
+
+            // Process tracks to use in our app
+            const processedTracks = tracksData.map((track) => ({
+                id: track.id,
+                name: track.name,
+                artist: track.artists.map((artist) => artist.name).join(', '),
+                image: track.album.images[0]?.url,
+                preview_url: track.preview_url,
+                duration_ms: track.duration_ms,
+            }));
+
+            setSpotifyTracks(processedTracks);
+        } catch (error) {
+            console.error('Error fetching tracks:', error);
+        } finally {
+            setIsLoading(false);
+        }
+    }
+
+    // Function to play a Spotify preview
+    const playSpotifyPreview = (previewUrl) => {
+        if (!previewUrl) {
+            console.error('No preview URL available for this track');
+            return;
+        }
+
+        if (soundRef.current) {
+            soundRef.current.stop(); // Stop any currently playing sound
+        }
+
+        // Create a new Howl instance with the preview URL
+        soundRef.current = new Howl({
+            src: [previewUrl],
+            format: ['mp3'],
+            html5: true, // Use HTML5 Audio to stream (better for streaming from URLs)
+            onplay: () => setPlaying(true),
+            onend: () => setPlaying(false),
+            onstop: () => setPlaying(false),
+            onpause: () => setPlaying(false),
+        });
+
+        soundRef.current.play();
+    };
 
     return (
         <div className={cx('home--root')}>
@@ -414,7 +435,7 @@ function Home() {
                                                 ref={(el) => (songItemRefs.current[songId] = el)}
                                             >
                                                 <div className={cx('item-wrapper-image')}>
-                                                    <img src={LifeImg} alt="Music" />
+                                                    <img src={song.image} alt="Music" />
                                                 </div>
                                                 <div className={cx('item-wrapper-info')}>
                                                     <div className={cx('item-wrapper-name')}>{song.name}</div>
@@ -426,7 +447,7 @@ function Home() {
                                                         handleOnClickSelectedSong(sectionIndex, songIndex);
                                                     }}
                                                 >
-                                                    <span className={cx('will-play-icon')}>
+                                                    <span className={cx('will-play-icon')} onClick={handleClickPlay}>
                                                         <svg
                                                             xmlns="http://www.w3.org/2000/svg"
                                                             fill="none"
@@ -441,7 +462,7 @@ function Home() {
                                                             />
                                                         </svg>
                                                     </span>
-                                                    <span className={cx('will-pause-icon')}>
+                                                    <span className={cx('will-pause-icon')} onClick={handleClickPlay}>
                                                         <svg
                                                             data-encore-id="icon"
                                                             role="img"
@@ -474,6 +495,8 @@ function Home() {
                         </section>
                     ))}
                 </div>
+                <input type="file" onChange={handleGetSound} accept="audio/mp3" />
+                <Popover />
             </content>
         </div>
     );

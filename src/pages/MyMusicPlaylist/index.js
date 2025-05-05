@@ -262,6 +262,7 @@ function MyMusicPlaylist() {
                                                                 Name
                                                             </label>
                                                             <input
+                                                                name="playlist-title"
                                                                 placeholder="Add a name"
                                                                 id="playlist-name"
                                                                 value={playlistName}
@@ -289,6 +290,7 @@ function MyMusicPlaylist() {
                                                                 Description
                                                             </label>
                                                             <textarea
+                                                                name="playlist-desc"
                                                                 value={playlistDesc}
                                                                 id="playlist-desc"
                                                                 placeholder="Add an optional description"
@@ -311,13 +313,36 @@ function MyMusicPlaylist() {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <button
-                                                    className={cx('btn-save-edit-modal')}
-                                                    type="submit"
-                                                    onClick={handleOnClickSubmitEdit}
-                                                >
-                                                    <span>Save</span>
-                                                </button>
+                                                <div className={cx('modal-edit-footer')}>
+                                                    <div className={cx('modal-edit-privacy')}>
+                                                        <label htmlFor="privacy">Privacy:</label>
+                                                        <div className={cx('choose-privacy')}>
+                                                            <select name="privacy" id="privacy">
+                                                                <option value="public" selected>
+                                                                    Public
+                                                                </option>
+                                                                <option value="private">Private</option>
+                                                            </select>
+                                                            <span>
+                                                                <svg
+                                                                    data-encore-id="icon"
+                                                                    role="img"
+                                                                    aria-hidden="true"
+                                                                    viewBox="0 0 24 24"
+                                                                >
+                                                                    <path d="M2.793 8.043a1 1 0 0 1 1.414 0L12 15.836l7.793-7.793a1 1 0 1 1 1.414 1.414L12 18.664 2.793 9.457a1 1 0 0 1 0-1.414z"></path>
+                                                                </svg>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <button
+                                                        className={cx('btn-save-edit-modal')}
+                                                        type="submit"
+                                                        onClick={handleOnClickSubmitEdit}
+                                                    >
+                                                        <span>Save</span>
+                                                    </button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>

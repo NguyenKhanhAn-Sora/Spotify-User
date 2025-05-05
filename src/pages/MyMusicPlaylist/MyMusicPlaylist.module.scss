@@ -533,7 +533,6 @@
 .my-music-playlist .item-index-show {
 }
 
-
 .my-music-playlist .item-index-show span {
     color: var(--text-subdued);
     font-family: var(--font-family-primary);
@@ -947,6 +946,63 @@
 
 .my-music-playlist .modal-edit-playlist-desc textarea:focus {
     background-color: #333333;
+}
+
+.my-music-playlist .modal-edit-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.my-music-playlist .modal-edit-footer .modal-edit-privacy {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.my-music-playlist .modal-edit-privacy .choose-privacy {
+    position: relative;
+}
+
+.my-music-playlist .modal-edit-privacy .choose-privacy span {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    user-select: none;
+    pointer-events: none;
+}
+
+.my-music-playlist .modal-edit-privacy .choose-privacy span svg {
+    fill: var(--text-white);
+    width: 100%;
+}
+
+.my-music-playlist .modal-edit-footer .modal-edit-privacy label {
+    color: var(--text-white);
+    font-size: 1.6rem;
+    font-family: var(--font-family-primary);
+}
+
+.my-music-playlist .modal-edit-footer .modal-edit-privacy select {
+    appearance: none;
+    color: var(--text-white);
+    padding: 8px 40px 8px 12px;
+    border: 1px solid var(--border-button);
+    background-color: transparent;
+    border-radius: 3px;
+    font-size: 1.6rem;
+    font-family: var(--font-family-primary);
+}
+
+.my-music-playlist .modal-edit-footer .modal-edit-privacy select option {
+    background-color: var(--background-base);
 }
 
 .my-music-playlist .btn-save-edit-modal {

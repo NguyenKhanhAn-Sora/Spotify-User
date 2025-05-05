@@ -75,6 +75,12 @@ a {
     font-size: 1.6rem;
 }
 
+button a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 svg {
     width: 100%;
     height: 100%;

@@ -9,14 +9,26 @@ function ControlBar() {
     const { showAside, setShowAside } = useContext(Context);
     const { showLyricView, setShowLyricView } = useContext(Context);
     const { showQueueView, setShowQueueView } = useContext(Context);
+    const { volumnValue, setVolumnValue } = useContext(Context);
+    const [prevVolumn, setPrevVolumn] = useState(0);
+
+    // -------------- Đặt giá trị của volumn khi ấn Icon
+
+    const toggleVolumnValue = () => {
+        if (prevVolumn === 0) {
+            setPrevVolumn(volumnValue);
+            setVolumnValue(0);
+        } else {
+            setVolumnValue(prevVolumn);
+            setPrevVolumn(0);
+        }
+    };
 
     return (
         <div className={cx('control-bar')}>
             <div className={cx('control-bar-wrapper')}>
                 <div className={cx('music-info-wrapper--cbar')}>
-                    <div className={cx('music-image-cbar')}>
-                        <img src={LifeImg} alt="Music Image" />
-                    </div>
+                    <div className={cx('music-image-cbar')}>{/* <img src={LifeImg} alt="Music Image" /> */}</div>
                     <div className={cx('music-info-cbar')}>
                         <span className={cx('music-name-cbar')}>Music Name</span>
                         <span className={cx('music-artist-cbar')}>Music Artist</span>
@@ -50,13 +62,13 @@ function ControlBar() {
                             </button>
                         </div>
                         <div className={cx('control-cbar-center')}>
-                            <button className={cx('btn-play-music', 'playing')}>
-                                <span className={cx('btn-play-control')}>
+                            <button className={cx('btn-play-music')}>
+                                <span className={cx('btn-will-pause')}>
                                     <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16">
                                         <path d="M2.7 1a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7H2.7zm8 0a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-2.6z"></path>
                                     </svg>
                                 </span>
-                                <span className={cx('btn-play-control')} style={{ display: 'none' }}>
+                                <span className={cx('btn-will-play')}>
                                     <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16">
                                         <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path>
                                     </svg>
@@ -92,8 +104,8 @@ function ControlBar() {
                     <button
                         onClick={() => {
                             setShowAside(!showAside);
-                            if(showQueueView) {
-                                setShowQueueView(!showQueueView)
+                            if (showQueueView) {
+                                setShowQueueView(!showQueueView);
                             }
                         }}
                         className={cx('btn-playing-view', showAside ? 'active' : '')}
@@ -121,7 +133,7 @@ function ControlBar() {
                         className={cx('btn-queue', showQueueView ? 'active' : '')}
                         onClick={() => {
                             setShowQueueView(!showQueueView);
-                            if(showAside) {
+                            if (showAside) {
                                 setShowAside(!showAside);
                             }
                         }}
@@ -133,8 +145,13 @@ function ControlBar() {
                         </span>
                     </button>
                     <div className={cx('volumn-wrapper')}>
-                        <button className={cx('btn-volumn')}>
-                            <span>
+                        <button
+                            className={cx('btn-volumn', volumnValue === 0 ? 'btn-volumn-mute' : '')}
+                            onClick={() => {
+                                toggleVolumnValue();
+                            }}
+                        >
+                            <span className={cx('volumn-icon')}>
                                 <svg
                                     data-encore-id="icon"
                                     role="presentation"
@@ -146,6 +163,18 @@ function ControlBar() {
                                     <path d="M11.5 13.614a5.752 5.752 0 0 0 0-11.228v1.55a4.252 4.252 0 0 1 0 8.127v1.55z"></path>
                                 </svg>
                             </span>
+                            <span className={cx('mute-icon')}>
+                                <svg
+                                    data-encore-id="icon"
+                                    role="presentation"
+                                    aria-label="Volume off"
+                                    aria-hidden="false"
+                                    viewBox="0 0 16 16"
+                                >
+                                    <path d="M13.86 5.47a.75.75 0 0 0-1.061 0l-1.47 1.47-1.47-1.47A.75.75 0 0 0 8.8 6.53L10.269 8l-1.47 1.47a.75.75 0 1 0 1.06 1.06l1.47-1.47 1.47 1.47a.75.75 0 0 0 1.06-1.06L12.39 8l1.47-1.47a.75.75 0 0 0 0-1.06z"></path>
+                                    <path d="M10.116 1.5A.75.75 0 0 0 8.991.85l-6.925 4a3.642 3.642 0 0 0-1.33 4.967 3.639 3.639 0 0 0 1.33 1.332l6.925 4a.75.75 0 0 0 1.125-.649v-1.906a4.73 4.73 0 0 1-1.5-.694v1.3L2.817 9.852a2.141 2.141 0 0 1-.781-2.92c.187-.324.456-.594.78-.782l5.8-3.35v1.3c.45-.313.956-.55 1.5-.694V1.5z"></path>
+                                </svg>
+                            </span>
                         </button>
                         <input
                             type="range"
@@ -155,6 +184,10 @@ function ControlBar() {
                             max="1"
                             name="volumn"
                             id="volumn"
+                            value={volumnValue}
+                            onChange={(e) => {
+                                setVolumnValue(e.target.value);
+                            }}
                         />
                     </div>
                 </div>

@@ -1,0 +1,35 @@
+Các loại Popover:
+- My Liked Playlist và My Liked Episodes Thì không có popover. Hiển thị mặc định 
+không thể xoá
+- Song ->  - Add to playlist
+           - Save to your Liked Song   
+           - Add to Queue
+           - Share
+           - Go to Album
+- Podcast -> - Add to playlist
+           - Save to your Liked Episodes    
+           - Add to Queue
+           - Share
+- Playlist không thể thêm vào Liked Song, nó được tính là Playlist riêng lẻ
+
+- Playlist Song / Album / Episodes
+        -> - Add to Library
+           - Add to Queue
+           - Share
+
+- Playlist Song / Episode (Trong Library - Của mình)
+        -> - Share
+           - Delete
+           - Add to Queue
+           - Make Private / Public
+
+
+- Playlist Song / Episode (Trong Library - Của Artist)
+        -> - Share
+           - Remove from your Library
+           - Add to Queue
+
+- Queue -> - Remove from queue   
+           - Save to your liked song/episodes
+           - Share
+           - Add to Playlist
